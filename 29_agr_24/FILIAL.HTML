@@ -1,0 +1,972 @@
+<div id="CAP" default-row-count="0">
+    <div class="clearfix"></div>
+    <div class="drow">
+        <br><br>
+        <div class="general-info">
+            <div class="left webform-right-sm index-field-wrapper">
+                <strong>["№"]</strong>
+                <span class="index-field">@CAP_NUM_FILIAL;</span>
+            </div>
+            <div class="CAP-section-cuatm webform-right-sm">
+                <label>["Cod CUATM"]</label>
+                @CAP_CUATM_FILIAL;
+            </div>
+            <span class="delrow right">
+                <a href="#">["Elimină raion"]</a>
+            </span>
+        </div>
+        <h3 align="center" class="webform-center webform-bold">
+            ["Cap.I - Culturi agricole"]
+        </h3>
+        <br><br>
+        <table id='CAP' class="CAP-grid" border="1" cellspacing="0" cellpadding="0" width="100%">
+            <thead>
+                <tr id='row'>
+                    <td width="47" rowspan="2" align="center"><strong>Nr. rînd.</strong></td>
+                    <td width="231" rowspan="2" align="center"><strong>Denumirea culturii agricole</strong></td>
+                    <td width="101" rowspan="2" align="center"><strong>Suprafaţa însămânţată precizată, ha</strong></td>
+                    <td width="102" rowspan="2" align="center"><strong>Suprafaţa recoltată, ha</strong></td>
+                    <td width="203" colspan="2" align="center"><strong>Recolta efectivă de pe suprafaţa recoltată,
+                            chintale</strong></td>
+                    <td width="102" rowspan="2" align="center">
+                        <strong>
+                            În afară de aceasta producţia obţinută pe semănături succesive şi între rânduri în masă
+                            inițial
+                            înregistrată, chintale
+                        </strong>
+                    </td>
+                </tr>
+                <tr id='row'>
+                    <td width="101" align="center"><strong>masa iniţial înregistrată</strong></td>
+                    <td width="102" align="center"><strong>masa după finisare</strong></td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center"><strong>A</strong></td>
+                    <td width="231" align="center"><strong>B</strong></td>
+                    <td width="101" align="center"><strong>1</strong></td>
+                    <td width="102" align="center"><strong>2</strong></td>
+                    <td width="101" align="center"><strong>3</strong></td>
+                    <td width="102" align="center"><strong>4</strong></td>
+                    <td width="102" align="center"><strong>5</strong></td>
+                </tr>
+            </thead>
+            <tbody id="grid_CAP1">
+                <tr id='row'>
+                    <td width="47" align="center"> </td>
+                    <td width="231" align="left">
+                        <strong>1. Culturi cerealiere și leguminoase</strong><br>
+
+                    </td>
+
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1110</td>
+                    <td width="231" align="left">
+                        &nbsp;&nbsp;&nbsp;&nbsp;Grâu de toamnă
+                    </td>
+                    <td width="101" align="center">@CAP1_R1110_C1_FILIAL;</td> <!--Add to all variables where it is not at the end (_FILIAL) like this--> 
+                    <td width="102" align="center">@CAP1_R1110_C2;</td>
+                    <td width="101" align="center">@CAP1_R1110_C3;</td>
+                    <td width="102" align="center">@CAP1_R1110_C4;</td>
+                    <td width="102" align="center">@CAP1_R1110_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1120</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Secară de toamnă</td>
+                    <td width="101" align="center">@CAP1_R1120_C1;</td>
+                    <td width="102" align="center">@CAP1_R1120_C2;</td>
+                    <td width="101" align="center">@CAP1_R1120_C3;</td>
+                    <td width="102" align="center">@CAP1_R1120_C4;</td>
+                    <td width="102" align="center">@CAP1_R1120_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1130</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Orz de toamnă</td>
+                    <td width="101" align="center">@CAP1_R1130_C1;</td>
+                    <td width="102" align="center">@CAP1_R1130_C2;</td>
+                    <td width="101" align="center">@CAP1_R1130_C3;</td>
+                    <td width="102" align="center">@CAP1_R1130_C4;</td>
+                    <td width="102" align="center">@CAP1_R1130_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1140</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Alte culturi de toamnă</td>
+                    <td width="101" align="center">@CAP1_R1140_C1;</td>
+                    <td width="102" align="center">@CAP1_R1140_C2;</td>
+                    <td width="101" align="center">@CAP1_R1140_C3;</td>
+                    <td width="102" align="center">@CAP1_R1140_C4;</td>
+                    <td width="102" align="center">@CAP1_R1140_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1150</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Grâu de primăvară</td>
+                    <td width="101" align="center">@CAP1_R1150_C1;</td>
+                    <td width="102" align="center">@CAP1_R1150_C2;</td>
+                    <td width="101" align="center">@CAP1_R1150_C3;</td>
+                    <td width="102" align="center">@CAP1_R1150_C4;</td>
+                    <td width="102" align="center">@CAP1_R1150_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1160</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Orz de primăvară</td>
+                    <td width="101" align="center">@CAP1_R1160_C1;</td>
+                    <td width="102" align="center">@CAP1_R1160_C2;</td>
+                    <td width="101" align="center">@CAP1_R1160_C3;</td>
+                    <td width="102" align="center">@CAP1_R1160_C4;</td>
+                    <td width="102" align="center">@CAP1_R1160_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1170</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Ovăz</td>
+                    <td width="101" align="center">@CAP1_R1170_C1;</td>
+                    <td width="102" align="center">@CAP1_R1170_C2;</td>
+                    <td width="101" align="center">@CAP1_R1170_C3;</td>
+                    <td width="102" align="center">@CAP1_R1170_C4;</td>
+                    <td width="102" align="center">@CAP1_R1170_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1180</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Culturile păioase în amestec</td>
+                    <td width="101" align="center">@CAP1_R1180_C1;</td>
+                    <td width="102" align="center">@CAP1_R1180_C2;</td>
+                    <td width="101" align="center">@CAP1_R1180_C3;</td>
+                    <td width="102" align="center">@CAP1_R1180_C4;</td>
+                    <td width="102" align="center">@CAP1_R1180_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1190</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbspPorumb pentru boabe - total</td>
+                    <td width="101" align="center">@CAP1_R1190_C1;</td>
+                    <td width="102" align="center">@CAP1_R1190_C2;</td>
+                    <td width="101" align="center">@CAP1_R1190_C3;</td>
+                    <td width="102" align="center">@CAP1_R1190_C4;</td>
+                    <td width="102" align="center">@CAP1_R1190_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1191</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;din care de pe semănăturile semincere</td>
+                    <td width="101" align="center">@CAP1_R1191_C1;</td>
+                    <td width="102" align="center">@CAP1_R1191_C2;</td>
+                    <td width="101" align="center">@CAP1_R1191_C3;</td>
+                    <td width="102" align="center">@CAP1_R1191_C4;</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1210</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;Mei
+                    </td>
+                    <td width="101" align="center">@CAP1_R1210_C1;</td>
+                    <td width="102" align="center">@CAP1_R1210_C2;</td>
+                    <td width="101" align="center">@CAP1_R1210_C3;</td>
+                    <td width="102" align="center">@CAP1_R1210_C4;</td>
+                    <td width="102" align="center">@CAP1_R1116_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1220</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Hrişcă</td>
+                    <td width="101" align="center">@CAP1_R1220_C1;</td>
+                    <td width="102" align="center">@CAP1_R1220_C2;</td>
+                    <td width="101" align="center">@CAP1_R1220_C3;</td>
+                    <td width="102" align="center">@CAP1_R1220_C4;</td>
+                    <td width="102" align="center">@CAP1_R1220_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1230</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;Leguminoase pentru boabe - total
+                        (r. 1231+ …+1236)</td>
+                    <td width="101" align="center">@CAP1_R1230_C1;</td>
+                    <td width="102" align="center">@CAP1_R1230_C2;</td>
+                    <td width="101" align="center">@CAP1_R1230_C3;</td>
+                    <td width="102" align="center">@CAP1_R1230_C4;</td>
+                    <td width="102" align="center">@CAP1_R1230_C5;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">1231</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Mazăre (boabe uscate)</td>
+                    <td width="101" align="center">@CAP1_R1231_C1;</td>
+                    <td width="102" align="center">@CAP1_R1231_C2;</td>
+                    <td width="101" align="center">@CAP1_R1231_C3;</td>
+                    <td width="102" align="center">@CAP1_R1231_C4;</td>
+                    <td width="102" align="center">@CAP1_R1231_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1232</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Fasole</td>
+                    <td width="101" align="center">@CAP1_R1232_C1;</td>
+                    <td width="102" align="center">@CAP1_R1232_C2;</td>
+                    <td width="101" align="center">@CAP1_R1232_C3;</td>
+                    <td width="102" align="center">@CAP1_R1232_C4;</td>
+                    <td width="102" align="center">@CAP1_R1232_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1233</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Linte</td>
+                    <td width="101" align="center">@CAP1_R1233_C1;</td>
+                    <td width="102" align="center">@CAP1_R1233_C2;</td>
+                    <td width="101" align="center">@CAP1_R1233_C3;</td>
+                    <td width="102" align="center">@CAP1_R1233_C4;</td>
+                    <td width="102" align="center">@CAP1_R1233_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1234</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Leguminoase furajere pentru boabe</td>
+                    <td width="101" align="center">@CAP1_R1234_C1;</td>
+                    <td width="102" align="center">@CAP1_R1234_C2;</td>
+                    <td width="101" align="center">@CAP1_R1234_C3;</td>
+                    <td width="102" align="center">@CAP1_R1234_C4;</td>
+                    <td width="102" align="center">@CAP1_R1234_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1235</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Măzăriche si borceag de măzăriche (cu
+                        predominarea
+                        măzărichii), pentru boabe</td>
+                    <td width="101" align="center">@CAP1_R1235_C1;</td>
+                    <td width="102" align="center">@CAP1_R1235_C2;</td>
+                    <td width="101" align="center">@CAP1_R1235_C3;</td>
+                    <td width="102" align="center">@CAP1_R1235_C4;</td>
+                    <td width="102" align="center">@CAP1_R1235_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1236</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Alte leguminoase pentru boabe</td>
+                    <td width="101" align="center">@CAP1_R1236_C1;</td>
+                    <td width="102" align="center">@CAP1_R1236_C2;</td>
+                    <td width="101" align="center">@CAP1_R1236_C3;</td>
+                    <td width="102" align="center">@CAP1_R1236_C4;</td>
+                    <td width="102" align="center">@CAP1_R1236_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1240</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Sorg pentru boabe - total</td>
+                    <td width="101" align="center">@CAP1_R1240_C1;</td>
+                    <td width="102" align="center">@CAP1_R1240_C2;</td>
+                    <td width="101" align="center">@CAP1_R1240_C3;</td>
+                    <td width="102" align="center">@CAP1_R1240_C4;</td>
+                    <td width="102" align="center">@CAP1_R1240_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1241</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;din care de pe semănăturile semincere</td>
+                    <td width="101" align="center">@CAP1_R1241_C1;</td>
+                    <td width="102" align="center">@CAP1_R1241_C2;</td>
+                    <td width="101" align="center">@CAP1_R1241_C3;</td>
+                    <td width="102" align="center">@CAP1_R1241_C4;</td>
+                    <td width="102" align="center">@CAP1_R1241_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1300</td>
+                    <td width="231" align="left"><strong>Cereale şi leguminoase pentru boabe - total</strong></td>
+                    <td width="101" align="center">@CAP1_R1300_C1;</td>
+                    <td width="102" align="center">@CAP1_R1300_C2;</td>
+                    <td width="101" align="center">@CAP1_R1300_C3;</td>
+                    <td width="102" align="center">@CAP1_R1300_C4;</td>
+                    <td width="102" align="center">@CAP1_R1300_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1400</td>
+                    <td width="231" align="left"><strong>2. Culturi tehnice - total</strong></td>
+                    <td width="101" align="center">@CAP1_R1400_C1;</td>
+                    <td width="102" align="center">@CAP1_R1400_C2;</td>
+                    <td width="101" align="center">@CAP1_R1400_C3;</td>
+                    <td width="102" align="center">@CAP1_R1400_C4;</td>
+                    <td width="102" align="center">@CAP1_R1400_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1410</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Sfeclă de zahăr (industrială)</td>
+                    <td width="101" align="center">@CAP1_R1410_C1;</td>
+                    <td width="102" align="center">@CAP1_R1410_C2;</td>
+                    <td width="101" align="center">@CAP1_R1410_C3;</td>
+                    <td width="102" align="center">@CAP1_R1410_C4;</td>
+                    <td width="102" align="center">@CAP1_R1410_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1420</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Tutun</td>
+                    <td width="101" align="center">@CAP1_R1420_C1;</td>
+                    <td width="102" align="center">@CAP1_R1420_C2;</td>
+                    <td width="101" align="center">@CAP1_R1420_C3;</td>
+                    <td width="102" align="center">@CAP1_R1420_C4;</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1430</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Floarea soarelui pentru boabe - total</td>
+                    <td width="101" align="center">@CAP1_R1430_C1;</td>
+                    <td width="102" align="center">@CAP1_R1430_C2;</td>
+                    <td width="101" align="center">@CAP1_R1430_C3;</td>
+                    <td width="102" align="center">@CAP1_R1430_C4;</td>
+                    <td width="102" align="center">@CAP1_R1430_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1431</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;din care de pe semănăturile semincere</td>
+                    <td width="101" align="center">@CAP1_R1431_C1;</td>
+                    <td width="102" align="center">@CAP1_R1431_C2;</td>
+                    <td width="101" align="center">@CAP1_R1431_C3;</td>
+                    <td width="102" align="center">@CAP1_R1431_C4;</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1440</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Soia</td>
+                    <td width="101" align="center">@CAP1_R1440_C1;</td>
+                    <td width="102" align="center">@CAP1_R1440_C2;</td>
+                    <td width="101" align="center">@CAP1_R1440_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1450</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Rapită de toamnă pentru boabe</td>
+                    <td width="101" align="center">@CAP1_R1450_C1;</td>
+                    <td width="102" align="center">@CAP1_R1450_C2;</td>
+                    <td width="101" align="center">@CAP1_R1450_C3;</td>
+                    <td width="102" align="center">@CAP1_R1450_C4;</td>
+                    <td width="102" align="center">@CAP1_R1450_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1460</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Rapită de primăvară pentru boabe</td>
+                    <td width="101" align="center">@CAP1_R1460_C1;</td>
+                    <td width="102" align="center">@CAP1_R1460_C2;</td>
+                    <td width="101" align="center">@CAP1_R1460_C3;</td>
+                    <td width="102" align="center">@CAP1_R1460_C4;</td>
+                    <td width="102" align="center">@CAP1_R1460_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1470</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Plante medicinale</td>
+                    <td width="101" align="center">@CAP1_R1470_C1;</td>
+                    <td width="102" align="center">@CAP1_R1470_C2;</td>
+                    <td width="101" align="center">@CAP1_R1470_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1480</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Culturi etero-oleaginoase - total</td>
+                    <td width="101" align="center">@CAP1_R1480_C1;</td>
+                    <td width="102" align="center">@CAP1_R1480_C2;</td>
+                    <td width="101" align="center">@CAP1_R1480_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1481</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Trandafir</td>
+                    <td width="101" align="center">@CAP1_R1481_C1;</td>
+                    <td width="102" align="center">@CAP1_R1481_C2;</td>
+                    <td width="101" align="center">@CAP1_R1481_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1482</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Salvie</td>
+                    <td width="101" align="center">@CAP1_R1482_C1;</td>
+                    <td width="102" align="center">@CAP1_R1482_C2;</td>
+                    <td width="101" align="center">@CAP1_R1482_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1483</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Levănţică</td>
+                    <td width="101" align="center">@CAP1_R1483_C1;</td>
+                    <td width="102" align="center">@CAP1_R1483_C2;</td>
+                    <td width="101" align="center">@CAP1_R1483_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1484</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Mărar</td>
+                    <td width="101" align="center">@CAP1_R1484_C1;</td>
+                    <td width="102" align="center">@CAP1_R1484_C2;</td>
+                    <td width="101" align="center">@CAP1_R1484_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1485</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Mintă</td>
+                    <td width="101" align="center">@CAP1_R1485_C1;</td>
+                    <td width="102" align="center">@CAP1_R1485_C2;</td>
+                    <td width="101" align="center">@CAP1_R1485_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1486</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;alte culturi etero-oleaginoase</td>
+                    <td width="101" align="center">@CAP1_R1486_C1;</td>
+                    <td width="102" align="center">@CAP1_R1486_C2;</td>
+                    <td width="101" align="center">@CAP1_R1486_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1490</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;In – total</td>
+                    <td width="101" align="center">@CAP1_R1490_C1;</td>
+                    <td width="102" align="center">@CAP1_R1490_C2;</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1491</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;din care pentru: fibră
+                    </td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1491_C2;</td>
+                    <td width="101" align="center">@CAP1_R1491_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1491_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1492</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;semințe</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1492_C2;</td>
+                    <td width="101" align="center">@CAP1_R1492_C3;</td>
+                    <td width="102" align="center">@CAP1_R1492_C4;</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1500</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Alte culturi tehnice, inclusiv sorg pentru
+                        mături
+                    </td>
+                    <td width="101" align="center">@CAP1_R1500_C1;</td>
+                    <td width="102" align="center">@CAP1_R1500_C2;</td>
+                    <td width="101" align="center">@CAP1_R1500_C3;</td>
+                    <td width="102" align="center">@CAP1_R1500_C4;</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+
+
+                <tr id='row'>
+                    <td width="50" align="center">1600</td>
+                    <td width="635" align="left"><strong>3. Cartofi, legume şi culturi bostănoase alimentare</strong>
+                    </td>
+
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">1610</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Cartofi</td>
+                    <td width="101" align="center">@CAP1_R1610_C1;</td>
+                    <td width="102" align="center">@CAP1_R1610_C2;</td>
+                    <td width="101" align="center">@CAP1_R1610_C3;</td>
+                    <td width="102" align="center">@CAP1_R1610_C4;</td>
+                    <td width="102" align="center">@CAP1_R1610_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1620</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Legume de câmp - total (fără culturi semincere
+                        de
+                        un an şi doi ani) (r. 1621+... +1636)</td>
+                    <td width="101" align="center">@CAP1_R1620_C1;</td>
+                    <td width="102" align="center">@CAP1_R1620_C2;</td>
+                    <td width="101" align="center">@CAP1_R1620_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1620_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1621</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;varză (toate
+                        varietăţile)
+                    </td>
+                    <td width="101" align="center">@CAP1_R1621_C1;</td>
+                    <td width="102" align="center">@CAP1_R1621_C2;</td>
+                    <td width="101" align="center">@CAP1_R1621_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1621_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1622</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;castraveți</td>
+                    <td width="101" align="center">@CAP1_R1622_C1;</td>
+                    <td width="102" align="center">@CAP1_R1622_C2;</td>
+                    <td width="101" align="center">@CAP1_R1622_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1622_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1623</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tomate</td>
+                    <td width="101" align="center">@CAP1_R1623_C1;</td>
+                    <td width="102" align="center">@CAP1_R1623_C2;</td>
+                    <td width="101" align="center">@CAP1_R1623_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1623_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1624</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sfeclă de masă</td>
+                    <td width="101" align="center">@CAP1_R1624_C1;</td>
+                    <td width="102" align="center">@CAP1_R1624_C2;</td>
+                    <td width="101" align="center">@CAP1_R1624_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1624_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1625</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;morcov</td>
+                    <td width="101" align="center">@CAP1_R1625_C1;</td>
+                    <td width="102" align="center">@CAP1_R1625_C2;</td>
+                    <td width="101" align="center">@CAP1_R1625_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1625_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1626</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ceapă uscată</td>
+                    <td width="101" align="center">@CAP1_R1626_C1;</td>
+                    <td width="102" align="center">@CAP1_R1626_C2;</td>
+                    <td width="101" align="center">@CAP1_R1626_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1626_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1627</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usturoi</td>
+                    <td width="101" align="center">@CAP1_R1627_C1;</td>
+                    <td width="102" align="center">@CAP1_R1627_C2;</td>
+                    <td width="101" align="center">@CAP1_R1627_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1627_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1628</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mazăre de grădină</td>
+                    <td width="101" align="center">@CAP1_R1628_C1;</td>
+                    <td width="102" align="center">@CAP1_R1628_C2;</td>
+                    <td width="101" align="center">@CAP1_R1628_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1628_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1629</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;porumb zaharat</td>
+                    <td width="101" align="center">@CAP1_R1629_C1;</td>
+                    <td width="102" align="center">@CAP1_R1629_C2;</td>
+                    <td width="101" align="center">@CAP1_R1629_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1629_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1630</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bostani</td>
+                    <td width="101" align="center">@CAP1_R1630_C1;</td>
+                    <td width="102" align="center">@CAP1_R1630_C2;</td>
+                    <td width="101" align="center">@CAP1_R1630_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1630_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1631</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dovlecei</td>
+                    <td width="101" align="center">@CAP1_R1631_C1;</td>
+                    <td width="102" align="center">@CAP1_R1631_C2;</td>
+                    <td width="101" align="center">@CAP1_R1631_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1631_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1632</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ardei graşi</td>
+                    <td width="101" align="center">@CAP1_R1632_C1;</td>
+                    <td width="102" align="center">@CAP1_R1632_C2;</td>
+                    <td width="101" align="center">@CAP1_R1632_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1632_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1633</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vinete</td>
+                    <td width="101" align="center">@CAP1_R1633_C1;</td>
+                    <td width="102" align="center">@CAP1_R1633_C2;</td>
+                    <td width="101" align="center">@CAP1_R1633_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1633_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1634</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gogoşari</td>
+                    <td width="101" align="center">@CAP1_R1634_C1;</td>
+                    <td width="102" align="center">@CAP1_R1634_C2;</td>
+                    <td width="101" align="center">@CAP1_R1634_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1634_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1635</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verzături</td>
+                    <td width="101" align="center">@CAP1_R1635_C1;</td>
+                    <td width="102" align="center">@CAP1_R1635_C2;</td>
+                    <td width="101" align="center">@CAP1_R1635_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1635_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1636</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alte legume</td>
+                    <td width="101" align="center">@CAP1_R1636_C1;</td>
+                    <td width="102" align="center">@CAP1_R1636_C2;</td>
+                    <td width="101" align="center">@CAP1_R1636_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1636_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1640</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Plantaţii-mamă de culturi legumicole bienale
+                    </td>
+                    <td width="101" align="center">@CAP1_R1640_C1;</td>
+                    <td width="102" align="center">@CAP1_R1640_C2;</td>
+                    <td width="101" align="center">@CAP1_R1640_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1650</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Seminceri de culturi legumicole de un an</td>
+                    <td width="101" align="center">@CAP1_R1650_C1;</td>
+                    <td width="102" align="center">@CAP1_R1650_C2;</td>
+                    <td width="101" align="center">@CAP1_R1650_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1660</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Seminceri de culturi legumicole bienale</td>
+                    <td width="101" align="center">@CAP1_R1660_C1;</td>
+                    <td width="102" align="center">@CAP1_R1660_C2;</td>
+                    <td width="101" align="center">@CAP1_R1660_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1670</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Ceapă - arpagic</td>
+                    <td width="101" align="center">@CAP1_R1670_C1;</td>
+                    <td width="102" align="center">@CAP1_R1670_C2;</td>
+                    <td width="101" align="center">@CAP1_R1670_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1670_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1680</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Culturi bostănoase alimentare (r.1681+1682)
+                    </td>
+                    <td width="101" align="center">@CAP1_R1680_C1;</td>
+                    <td width="102" align="center">@CAP1_R1680_C2;</td>
+                    <td width="101" align="center">@CAP1_R1680_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1680_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1681</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pepeni verzi</td>
+                    <td width="101" align="center">@CAP1_R1681_C1;</td>
+                    <td width="102" align="center">@CAP1_R1681_C2;</td>
+                    <td width="101" align="center">@CAP1_R1681_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1681_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1682</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pepeni galbeni (zemoşi)
+                    </td>
+                    <td width="101" align="center">@CAP1_R1682_C1;</td>
+                    <td width="102" align="center">@CAP1_R1682_C2;</td>
+                    <td width="101" align="center">@CAP1_R1682_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1682_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1690</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Seminceri de culturi bostănoase alimentare</td>
+                    <td width="101" align="center">@CAP1_R1690_C1;</td>
+                    <td width="102" align="center">@CAP1_R1690_C2;</td>
+                    <td width="101" align="center">@CAP1_R1690_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1700</td>
+                    <td width="231" align="left"><strong>Cartofi, legume şi culturi bostănoase alimentare – total (r.
+                            1610+1620+1640+...+1680 + 1690)</strong></td>
+                    <td width="101" align="center">@CAP1_R1700_C1;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1800</td>
+                    <td width="231" align="left"><strong>Legume de câmp şi de teren acoperit -total (r. 1620+ r. 6100
+                            col.2)</strong></td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1800_C4;</td>
+                    <td width="102" align="center">@CAP1_R1800_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1900</td>
+                    <td width="231" align="left"><strong>4. Plantele de nutreţ - total (r. 1910+...+1950+1960)</strong>
+                    </td>
+                    <td width="101" align="center">@CAP1_R1900_C1;</td>
+                    <td width="102" align="center">@CAP1_R1900_C2;</td>
+                    <td width="101" align="center">@CAP1_R1900_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1900_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1910</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Plante rădăcinoase pentru nutreţ (incusiv
+                        sfeclă de
+                        zahăr pentru nutreţ)</td>
+                    <td width="101" align="center">@CAP1_R1910_C1;</td>
+                    <td width="102" align="center">@CAP1_R1910_C2;</td>
+                    <td width="101" align="center">@CAP1_R1910_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1910_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1920</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Bostănării de nutreţ</td>
+                    <td width="101" align="center">@CAP1_R1920_C1;</td>
+                    <td width="102" align="center">@CAP1_R1920_C2;</td>
+                    <td width="101" align="center">@CAP1_R1920_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1920_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1930</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Porumb pentru siloz, masă verde şi fânaj (în
+                        masă
+                        verde - total)</td>
+                    <td width="101" align="center">@CAP1_R1930_C1;</td>
+                    <td width="102" align="center">@CAP1_R1930_C2;</td>
+                    <td width="101" align="center">@CAP1_R1930_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1930_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1940</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Culturi pentru siloz (fără porumb)</td>
+                    <td width="101" align="center">@CAP1_R1940_C1;</td>
+                    <td width="102" align="center">@CAP1_R1940_C2;</td>
+                    <td width="101" align="center">@CAP1_R1940_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1940_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1950</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Ierburi - total</td>
+                    <td width="101" align="center">@CAP1_R1950_C1;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1951</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pentru fân</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1951_C2;</td>
+                    <td width="101" align="center">@CAP1_R1951_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1951_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1952</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pentru masă verde,
+                        fânaj,
+                        siloz şi faină din ierburi (masa verde)</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1952_C2;</td>
+                    <td width="101" align="center">@CAP1_R1952_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1952_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1953</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pentru seminţe</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1953_C2;</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1953_C4;</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">1960</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;Alte plante de nutreț</td>
+                    <td width="101" align="center">@CAP1_R1960_C1;</td>
+                    <td width="102" align="center">@CAP1_R1960_C2;</td>
+                    <td width="101" align="center">@CAP1_R1960_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">@CAP1_R1960_C5;</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">2000</td>
+                    <td width="231" align="left"><strong>Suprafaţa însămânţată sub roada anului curent- total (r.
+                            1300+1400+1700+1900)</strong></td>
+                    <td width="101" align="center">@CAP1_R2000_C1;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">2100</td>
+                    <td width="231" align="left"><strong>Din suprafaţa totală însămânţată semănături între rînduri de
+                            livezi
+                            şi vii</strong></td>
+                    <td width="101" align="center">@CAP1_R2100_C1;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">3000</td>
+                    <td width="231" align="left"><strong>Recoltat paie - total</strong></td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="101" align="center">@CAP1_R3000_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">4000</td>
+                    <td width="231" align="left"><strong>Recoltat strujeni de porumb de coacere deplină</strong></td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="101" align="center">@CAP1_R4000_C3;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">5000</td>
+                    <td width="231" align="left"><strong>Total terenuri agricole</strong></td>
+                    <td width="101" align="center">@CAP1_R5000_C1;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+                <tr id='row'>
+                    <td width="47" align="center">5100</td>
+                    <td width="231" align="left">&nbsp;&nbsp;&nbsp;&nbsp;din care: teren arabil</td>
+                    <td width="101" align="center">@CAP1_R5100_C1;</td>
+                    <td width="102" align="center">X</td>
+                    <td width="101" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                    <td width="102" align="center">X</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="50" align="center"> </td>
+                    <td width="635" align="left"><strong>6. Cultivarea legumelor și a răsadurilor în teren acoperit,
+                            flori</strong></td>
+
+                </tr>
+                <!-- Section starting with two merged columns: Surface and Production -->
+                <tr id='row'>
+                    <td width="47" align="center"><strong>Nr. rînd.</strong></td>
+                    <td width="231" align="center"><strong>Denumirea culturii agricole</strong></td>
+                    <td colspan="2" width="202" align="center"><strong>Suprafaţa</strong></td>
+                    <td colspan="3" width="306" align="center"><strong>Producția</strong></td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6100</td>
+                    <td width="231" align="left">Legume culese de la toate rotaţiile, chintale</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6100_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6100_Productie;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6110</td>
+                    <td width="231" align="left">Tomate</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6110_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6110_Productie;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6120</td>
+                    <td width="231" align="left">Castraveți</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6120_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6120_Productie;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6130</td>
+                    <td width="231" align="left">Alte legume</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6130_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6130_Productie;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6200</td>
+                    <td width="231" align="left">Răsad produs, mii bucăţi: tutun</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6200_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6200_Productie;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6300</td>
+                    <td width="231" align="left">Legume</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6300_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6300_Productie;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6400</td>
+                    <td width="231" align="left">Flori</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6400_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6400_Productie;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6500</td>
+                    <td width="231" align="left">Ciuperci culese, kilograme</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6500_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6500_Productie;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6600</td>
+                    <td width="231" align="left">Flori și bubușlii de flori tăiate, mii bucăţi</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6600_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6600_Productie;</td>
+                </tr>
+
+                <tr id='row'>
+                    <td width="47" align="center">6700</td>
+                    <td width="231" align="left">Producția vândută de flori în ghivece, bucăți</td>
+                    <td colspan="2" width="202" align="center">@CAP1_R6700_Suprafata;</td>
+                    <td colspan="3" width="306" align="center">@CAP1_R6700_Productie;</td>
+                </tr>
+
+
+
+
+
+            </tbody>
+        </table>
+        <br><br>
+
+        <br><br>
+
+    </div>
+    <a href="#" class="grid-addrow grid-add-region">["Adaugă raion"]</a>
+    <br><br>
+</div>
