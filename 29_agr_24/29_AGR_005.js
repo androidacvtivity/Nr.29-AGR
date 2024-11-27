@@ -121,6 +121,39 @@ function validate45_001(values) {
     }
 }
 
+
+function validate45_001_F(values) {
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var i = 1110; i <= 1500; i++) {
+            // Include the condition to filter rows using row_45_CAP1
+            if (row_45_CAP1(i)) {
+                var col1_F = 0, col2_F = 0;
+
+                // Check if properties exist and are valid numbers
+                if (values["CAP1_R" + i + "_C1_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C1_FILIAL"][j]))) {
+                    col1_F = Number(values["CAP1_R" + i + "_C1_FILIAL"][j]);
+                }
+
+                if (values["CAP1_R" + i + "_C2_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C2_FILIAL"][j]))) {
+                    col2_F = Number(values["CAP1_R" + i + "_C2_FILIAL"][j]);
+                }
+
+                // Validation: col1_F should be greater than or equal to col2_F
+                if (col1_F < col2_F) {
+                    webform.errors.push({
+                        'fieldName': 'CAP1_R' + i + '_C1_FILIAL',
+                        'index': j,
+                        'weight': 6,
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-004-F. [@row_FILIAL] - COL1(@col1_F) < COL2(@col2_F)', { '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL, '@row_FILIAL': i, '@col1_F': col1_F, '@col2_F': col2_F })
+                    });
+                }
+            }
+        }
+    }
+}
+
 // --------------------------------------------------
 function sort_errors_warinings(a, b) {
     if (!a.hasOwnProperty('weight')) {
