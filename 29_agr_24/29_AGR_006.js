@@ -22,6 +22,7 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
 
     validatePhoneNumber(values.PHONE);
     validate45_001(values);
+    validate45_001_F(values);
     //-----------------------------------------------------
 
     
