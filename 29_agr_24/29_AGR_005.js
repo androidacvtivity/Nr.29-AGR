@@ -21,6 +21,7 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     //-----------------------------------------------------
 
     validatePhoneNumber(values.PHONE);
+    validate45_001(values);
     //-----------------------------------------------------
 
     
@@ -82,7 +83,43 @@ function getErrorMessage(errorCode) {
     return Drupal.t('Error code: @error_code', { '@error_code': errorCode });
 }
 
+function row_45_CAP1(row) {
+    var i;
+    i = row;
+    if (
+        i == 1110 || i == 1120 || i == 1130 || i == 1140 || i == 1150 || i == 1160 || i == 1170 || i == 1180
+        || i == 1190 || i == 1191 || i == 1210 || i == 1220 || i == 1230 || i == 1231 || i == 1232 || i == 1232
+        || i == 1233 || i == 1234 || i == 1134 || i == 1235 || i == 1236 || i == 1240 || i == 1241
+        || i == 1300 || i == 1400 || i == 1410 || i == 1420 || i == 1430 || i == 1431 || i == 1440 || i == 1450
+        || i == 1460 || i == 1470 || i == 1480 || i == 1481 || i == 1482 || i == 1483 || i == 1484 || i == 1485 
+        || i == 1486 || i == 1490 || i == 1500
+     )
+        return true;
+}
 
+function validate45_001(values) {
+    for (var i = 1110; i <= 1500; i++) {
+        {
+            if (row_45_CAP1(i)) {
+                
+                if (!isNaN(Number(values["CAP1_R" + (i) + "_C1"]))) {
+                    var col1 = Number(values["CAP1_R" + (i) + "_C1"]);
+                }
+                
+                var col1 = !isNaN(Number(values["CAP1_R" + (i) + "_C1"])) ? Number(values["CAP1_R" + (i) + "_C1"]) : 0;
+                var col2 = !isNaN(Number(values["CAP1_R" + (i) + "_C2"])) ? Number(values["CAP1_R" + (i) + "_C2"]) : 0;
+
+                if (col1 < col2) {
+                    webform.errors.push({
+                        'fieldName': 'CAP1_R' + (i) + '_C1',
+                        'weight': 6,
+                        'msg': Drupal.t('Cod eroare: 45-004. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
+                    });
+                }
+            }
+        }
+    }
+}
 
 // --------------------------------------------------
 function sort_errors_warinings(a, b) {
