@@ -24,9 +24,11 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     validate45_001(values);
     validate45_002(values);
     validate45_003(values);
+    validate45_004(values);
     validate45_001_F(values);
     validate45_002_F(values);
     validate45_003_F(values);
+    validate45_004_F(values);
     //-----------------------------------------------------
 
     
@@ -443,10 +445,56 @@ function validate45_002_F(values) {
         }
     }
 }
+//----------------------------------------------
 
 
+// Validation function for CAP1: row 1190 columns 1,2,3,4 ≥ row 1191 columns 1,2,3,4
+function validate45_004(values) {
+    var colNames = ["C1", "C2", "C3", "C4"];
+    for (var col of colNames) {
+        var col_1190 = !isNaN(Number(values["CAP1_R1190_" + col])) ? Number(values["CAP1_R1190_" + col]) : 0;
+        var col_1191 = !isNaN(Number(values["CAP1_R1191_" + col])) ? Number(values["CAP1_R1191_" + col]) : 0;
 
-//    
+        if (col_1190 < col_1191) {
+            webform.errors.push({
+                'fieldName': 'CAP1_R1190_' + col,
+                'weight': 6,
+                'msg': Drupal.t('Cod eroare: 45-004. Rând.1190 col. ' + col + ' ≥ Rând.1191 col. ' + col + '. Valoarea rândului 1190: ' + col_1190 + ', valoarea rândului 1191: ' + col_1191)
+            });
+        }
+    }
+}
+
+// Validation function for CAP1 FILIAL: row 1190 columns 1,2,3,4 ≥ row 1191 columns 1,2,3,4
+function validate45_004_F(values) {
+    var colNames = ["C1", "C2", "C3", "C4"];
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var col of colNames) {
+            var col_1190_F = values["CAP1_R1190_" + col + "_FILIAL"] && !isNaN(Number(values["CAP1_R1190_" + col + "_FILIAL"][j]))
+                ? Number(values["CAP1_R1190_" + col + "_FILIAL"][j])
+                : 0;
+            var col_1191_F = values["CAP1_R1191_" + col + "_FILIAL"] && !isNaN(Number(values["CAP1_R1191_" + col + "_FILIAL"][j]))
+                ? Number(values["CAP1_R1191_" + col + "_FILIAL"][j])
+                : 0;
+
+            if (col_1190_F < col_1191_F) {
+                webform.errors.push({
+                    'fieldName': 'CAP1_R1190_' + col + '_FILIAL',
+                    'index': j,
+                    'weight': 6,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-004-F. Rând.1190 col. ' + col + ' ≥ Rând.1191 col. ' + col + '. Valoarea rândului 1190: ' + col_1190_F + ', valoarea rândului 1191: ' + col_1191_F, {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                    })
+                });
+            }
+        }
+    }
+}
+
+
+//-----------------------------------------    
 function roundToDecimal(value, decimals) {
     if (!isNaN(value)) {
         var factor = Math.pow(10, decimals);
