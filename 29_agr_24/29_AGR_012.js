@@ -23,8 +23,10 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     validatePhoneNumber(values.PHONE);
     validate45_001(values);
     validate45_002(values);
+    validate45_003(values);
     validate45_001_F(values);
-    validate45_001_2(values);
+    validate45_002_F(values);
+    validate45_003_F(values);
     //-----------------------------------------------------
 
     
@@ -117,6 +119,82 @@ function row_45_CAP1_1610_1690(row) {
 }
 
 
+function row_45_CAP1_71_752(row) {
+    var i;
+    i = row;
+    if (
+        i == 7100 || i == 7110 || i == 7120 || i == 7130 || i == 7140 || i == 7200 || i == 7210 || i == 7220
+        || i == 7230 || i == 7240 || i == 7250 || i == 7260 || i == 7300 || i == 7310 || i == 7320 || i == 7330
+        || i == 7400 || i == 7410 || i == 7420 || i == 7430 || i == 7440 || i == 7450 || i == 7460
+        || i == 7470 || i == 7480 || i == 7490 || i == 7500 || i == 7510 || i == 7520
+
+    )
+        return true;
+}
+
+// Modify this function to be with - FILIAL. You have already modified it.
+function validate45_003(values) {
+    for (var i = 7100; i <= 7520; i++) {
+        {
+            if (row_45_CAP1_71_752(i)) {
+
+
+                var col1 = !isNaN(parseFloat(values["CAP2_R" + (i) + "_C1"])) ? parseFloat(values["CAP2_R" + (i) + "_C1"]) : 0;
+                var col2 = !isNaN(parseFloat(values["CAP2_R" + (i) + "_C2"])) ? parseFloat(values["CAP2_R" + (i) + "_C2"]) : 0;
+
+                col1 = roundToDecimal(col1, 1);
+                col2 = roundToDecimal(col2, 1);
+                if (col1 < col2) {
+                    webform.errors.push({
+                        'fieldName': 'CAP2_R' + (i) + '_C1',
+                        'weight': 6,
+                        'msg': Drupal.t('Cod eroare: 45-003. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
+                    });
+                }
+            }
+        }
+    }
+}
+
+function validate45_003_F(values) {
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var i = 7100; i <= 7520; i++) {
+            if (row_45_CAP1_71_752(i)) {
+                var col1_F = 0, col2_F = 0;
+
+                // Check if properties exist and are valid numbers
+                if (values["CAP2_R" + i + "_C1_FILIAL"] && !isNaN(Number(values["CAP2_R" + i + "_C1_FILIAL"][j]))) {
+                    col1_F = Number(values["CAP2_R" + i + "_C1_FILIAL"][j]);
+                }
+
+                if (values["CAP2_R" + i + "_C2_FILIAL"] && !isNaN(Number(values["CAP2_R" + i + "_C2_FILIAL"][j]))) {
+                    col2_F = Number(values["CAP2_R" + i + "_C2_FILIAL"][j]);
+                }
+
+                // Round to one decimal place
+                col1_F = roundToDecimal(col1_F, 1);
+                col2_F = roundToDecimal(col2_F, 1);
+
+                // Validation: col1_F should be greater than or equal to col2_F
+                if (col1_F < col2_F) {
+                    webform.errors.push({
+                        'fieldName': 'CAP2_R' + i + '_C1_FILIAL',
+                        'index': j,
+                        'weight': 6,
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-003-F. [@row_FILIAL] - col.1(@col1_F) ≥ col.2(@col2_F)', {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@row_FILIAL': i,
+                            '@col1_F': col1_F,
+                            '@col2_F': col2_F
+                        })
+                    });
+                }
+            }
+        }
+    }
+}
 
 
 function validate45_001(values) {
