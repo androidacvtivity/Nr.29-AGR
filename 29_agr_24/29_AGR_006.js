@@ -174,6 +174,17 @@ function validate45_001_F(values) {
     }
 }
 
+//    
+function roundToDecimal(value, decimals) {
+    if (!isNaN(value)) {
+        var factor = Math.pow(10, decimals);
+        return Math.round(value * factor) / factor;
+    } else {
+        console.warn("Value provided is not a number:", value);
+        return 0; // Default fallback value
+    }
+}
+
 // --------------------------------------------------
 function sort_errors_warinings(a, b) {
     if (!a.hasOwnProperty('weight')) {
