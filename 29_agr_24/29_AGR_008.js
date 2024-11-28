@@ -22,6 +22,7 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
 
     validatePhoneNumber(values.PHONE);
     validate45_001(values);
+    validate45_002(values);
     validate45_001_F(values);
     //-----------------------------------------------------
 
@@ -122,9 +123,7 @@ function validate45_001(values) {
         {
             if (row_45_CAP1(i)) {
                 
-                if (!isNaN(Number(values["CAP1_R" + (i) + "_C1"]))) {
-                    var col1 = Number(values["CAP1_R" + (i) + "_C1"]);
-                }
+           
                 
                 var col1 = !isNaN(Number(values["CAP1_R" + (i) + "_C1"])) ? Number(values["CAP1_R" + (i) + "_C1"]) : 0;
                 var col2 = !isNaN(Number(values["CAP1_R" + (i) + "_C2"])) ? Number(values["CAP1_R" + (i) + "_C2"]) : 0;
@@ -133,7 +132,7 @@ function validate45_001(values) {
                     webform.errors.push({
                         'fieldName': 'CAP1_R' + (i) + '_C1',
                         'weight': 6,
-                        'msg': Drupal.t('Cod eroare: 45-004. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
+                        'msg': Drupal.t('Cod eroare: 45-001. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
                     });
                 }
             }
@@ -141,6 +140,29 @@ function validate45_001(values) {
     }
 }
 
+
+function validate45_002(values) {
+    for (var i = 1610; i <= 1690; i++) {
+        {
+            if (row_45_CAP1_1610_1690(i)) {
+
+
+                var col1 = !isNaN(parseFloat(values["CAP1_R" + (i) + "_C1"])) ? parseFloat(values["CAP1_R" + (i) + "_C1"]) : 0;
+                var col2 = !isNaN(parseFloat(values["CAP1_R" + (i) + "_C2"])) ? parseFloat(values["CAP1_R" + (i) + "_C2"]) : 0;
+
+                col1 = roundToDecimal(col1, 1);
+                col2 = roundToDecimal(col2, 1);
+                if (col1 < col2) {
+                    webform.errors.push({
+                        'fieldName': 'CAP1_R' + (i) + '_C1',
+                        'weight': 6,
+                        'msg': Drupal.t('Cod eroare: 45-002. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
+                    });
+                }
+            }
+        }
+    }
+}
 
 function validate45_001_F(values) {
     for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
@@ -166,7 +188,7 @@ function validate45_001_F(values) {
                         'fieldName': 'CAP1_R' + i + '_C1_FILIAL',
                         'index': j,
                         'weight': 6,
-                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-004-F. [@row_FILIAL] - COL1(@col1_F) < COL2(@col2_F)', { '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL, '@row_FILIAL': i, '@col1_F': col1_F, '@col2_F': col2_F })
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-001-F. [@row_FILIAL] - COL1(@col1_F) < COL2(@col2_F)', { '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL, '@row_FILIAL': i, '@col1_F': col1_F, '@col2_F': col2_F })
                     });
                 }
             }
