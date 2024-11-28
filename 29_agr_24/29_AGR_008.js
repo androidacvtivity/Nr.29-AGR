@@ -24,6 +24,7 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     validate45_001(values);
     validate45_002(values);
     validate45_001_F(values);
+    validate45_001_2(values);
     //-----------------------------------------------------
 
     
@@ -164,6 +165,8 @@ function validate45_002(values) {
     }
 }
 
+
+//This is one sample
 function validate45_001_F(values) {
     for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
         var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
@@ -195,6 +198,49 @@ function validate45_001_F(values) {
         }
     }
 }
+
+
+
+function validate45_002_F(values) {
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var i = 1610; i <= 1690; i++) {
+            if (row_45_CAP1_1610_1690(i)) {
+                var col1_F = 0, col2_F = 0;
+
+                // Check if properties exist and are valid numbers
+                if (values["CAP1_R" + i + "_C1_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C1_FILIAL"][j]))) {
+                    col1_F = Number(values["CAP1_R" + i + "_C1_FILIAL"][j]);
+                }
+
+                if (values["CAP1_R" + i + "_C2_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C2_FILIAL"][j]))) {
+                    col2_F = Number(values["CAP1_R" + i + "_C2_FILIAL"][j]);
+                }
+
+                // Round to one decimal place
+                col1_F = roundToDecimal(col1_F, 1);
+                col2_F = roundToDecimal(col2_F, 1);
+
+                // Validation: col1_F should be greater than or equal to col2_F
+                if (col1_F < col2_F) {
+                    webform.errors.push({
+                        'fieldName': 'CAP1_R' + i + '_C1_FILIAL',
+                        'index': j,
+                        'weight': 6,
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-002-F. [@row_FILIAL] - col.1(@col1_F) ≥ col.2(@col2_F)', {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@row_FILIAL': i,
+                            '@col1_F': col1_F,
+                            '@col2_F': col2_F
+                        })
+                    });
+                }
+            }
+        }
+    }
+}
+
 
 //    
 function roundToDecimal(value, decimals) {
