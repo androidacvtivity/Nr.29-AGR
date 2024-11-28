@@ -132,29 +132,43 @@ function row_45_CAP1_71_752(row) {
         return true;
 }
 
-// Modify this function to be with - FILIAL. You have already modified it.
 function validate45_003(values) {
     for (var i = 7100; i <= 7520; i++) {
-        {
-            if (row_45_CAP1_71_752(i)) {
+        if (row_45_CAP1_71_752(i)) {
 
+            // Validation for column 1 and column 2
+            var col1 = !isNaN(parseFloat(values["CAP2_R" + i + "_C1"])) ? parseFloat(values["CAP2_R" + i + "_C1"]) : 0;
+            var col2 = !isNaN(parseFloat(values["CAP2_R" + i + "_C2"])) ? parseFloat(values["CAP2_R" + i + "_C2"]) : 0;
 
-                var col1 = !isNaN(parseFloat(values["CAP2_R" + (i) + "_C1"])) ? parseFloat(values["CAP2_R" + (i) + "_C1"]) : 0;
-                var col2 = !isNaN(parseFloat(values["CAP2_R" + (i) + "_C2"])) ? parseFloat(values["CAP2_R" + (i) + "_C2"]) : 0;
+            col1 = roundToDecimal(col1, 1);
+            col2 = roundToDecimal(col2, 1);
 
-                col1 = roundToDecimal(col1, 1);
-                col2 = roundToDecimal(col2, 1);
-                if (col1 < col2) {
-                    webform.errors.push({
-                        'fieldName': 'CAP2_R' + (i) + '_C1',
-                        'weight': 6,
-                        'msg': Drupal.t('Cod eroare: 45-003. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
-                    });
-                }
+            if (col1 < col2) {
+                webform.errors.push({
+                    'fieldName': 'CAP2_R' + i + '_C1',
+                    'weight': 6,
+                    'msg': Drupal.t('Cod eroare: 45-003. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
+                });
+            }
+
+            // Validation for column 3 and column 4
+            var col3 = !isNaN(parseFloat(values["CAP2_R" + i + "_C3"])) ? parseFloat(values["CAP2_R" + i + "_C3"]) : 0;
+            var col4 = !isNaN(parseFloat(values["CAP2_R" + i + "_C4"])) ? parseFloat(values["CAP2_R" + i + "_C4"]) : 0;
+
+            col3 = roundToDecimal(col3, 1);
+            col4 = roundToDecimal(col4, 1);
+
+            if (col3 < col4) {
+                webform.errors.push({
+                    'fieldName': 'CAP2_R' + i + '_C3',
+                    'weight': 6,
+                    'msg': Drupal.t('Cod eroare: 45-003. [@col3] - col.3  ≥  col.4 - [@col4]', { "@col3": col3, "@col4": col4 })
+                });
             }
         }
     }
 }
+
 
 function validate45_003_F(values) {
     for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
@@ -163,8 +177,9 @@ function validate45_003_F(values) {
         for (var i = 7100; i <= 7520; i++) {
             if (row_45_CAP1_71_752(i)) {
                 var col1_F = 0, col2_F = 0;
+                var col3_F = 0, col4_F = 0;
 
-                // Check if properties exist and are valid numbers
+                // Check if properties exist and are valid numbers for columns 1 and 2
                 if (values["CAP2_R" + i + "_C1_FILIAL"] && !isNaN(Number(values["CAP2_R" + i + "_C1_FILIAL"][j]))) {
                     col1_F = Number(values["CAP2_R" + i + "_C1_FILIAL"][j]);
                 }
@@ -191,29 +206,68 @@ function validate45_003_F(values) {
                         })
                     });
                 }
+
+                // Check if properties exist and are valid numbers for columns 3 and 4
+                if (values["CAP2_R" + i + "_C3_FILIAL"] && !isNaN(Number(values["CAP2_R" + i + "_C3_FILIAL"][j]))) {
+                    col3_F = Number(values["CAP2_R" + i + "_C3_FILIAL"][j]);
+                }
+
+                if (values["CAP2_R" + i + "_C4_FILIAL"] && !isNaN(Number(values["CAP2_R" + i + "_C4_FILIAL"][j]))) {
+                    col4_F = Number(values["CAP2_R" + i + "_C4_FILIAL"][j]);
+                }
+
+                // Round to one decimal place
+                col3_F = roundToDecimal(col3_F, 1);
+                col4_F = roundToDecimal(col4_F, 1);
+
+                // Validation: col3_F should be greater than or equal to col4_F
+                if (col3_F < col4_F) {
+                    webform.errors.push({
+                        'fieldName': 'CAP2_R' + i + '_C3_FILIAL',
+                        'index': j,
+                        'weight': 6,
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-003-F. [@row_FILIAL] - col.3(@col3_F) ≥ col.4(@col4_F)', {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@row_FILIAL': i,
+                            '@col3_F': col3_F,
+                            '@col4_F': col4_F
+                        })
+                    });
+                }
             }
         }
     }
 }
 
 
+
+
 function validate45_001(values) {
     for (var i = 1110; i <= 1500; i++) {
-        {
-            if (row_45_CAP1(i)) {
-                
-           
-                
-                var col1 = !isNaN(Number(values["CAP1_R" + (i) + "_C1"])) ? Number(values["CAP1_R" + (i) + "_C1"]) : 0;
-                var col2 = !isNaN(Number(values["CAP1_R" + (i) + "_C2"])) ? Number(values["CAP1_R" + (i) + "_C2"]) : 0;
+        if (row_45_CAP1(i)) {
 
-                if (col1 < col2) {
-                    webform.errors.push({
-                        'fieldName': 'CAP1_R' + (i) + '_C1',
-                        'weight': 6,
-                        'msg': Drupal.t('Cod eroare: 45-001. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
-                    });
-                }
+            // Validation for column 1 and column 2
+            var col1 = !isNaN(Number(values["CAP1_R" + i + "_C1"])) ? Number(values["CAP1_R" + i + "_C1"]) : 0;
+            var col2 = !isNaN(Number(values["CAP1_R" + i + "_C2"])) ? Number(values["CAP1_R" + i + "_C2"]) : 0;
+
+            if (col1 < col2) {
+                webform.errors.push({
+                    'fieldName': 'CAP1_R' + i + '_C1',
+                    'weight': 6,
+                    'msg': Drupal.t('Cod eroare: 45-001. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
+                });
+            }
+
+            // Validation for column 3 and column 4
+            var col3 = !isNaN(Number(values["CAP1_R" + i + "_C3"])) ? Number(values["CAP1_R" + i + "_C3"]) : 0;
+            var col4 = !isNaN(Number(values["CAP1_R" + i + "_C4"])) ? Number(values["CAP1_R" + i + "_C4"]) : 0;
+
+            if (col3 < col4) {
+                webform.errors.push({
+                    'fieldName': 'CAP1_R' + i + '_C3',
+                    'weight': 6,
+                    'msg': Drupal.t('Cod eroare: 45-001. [@col3] - col.3  ≥  col.4 - [@col4]', { "@col3": col3, "@col4": col4 })
+                });
             }
         }
     }
@@ -222,29 +276,42 @@ function validate45_001(values) {
 
 function validate45_002(values) {
     for (var i = 1610; i <= 1690; i++) {
-        {
-            if (row_45_CAP1_1610_1690(i)) {
+        if (row_45_CAP1_1610_1690(i)) {
 
+            // Validation for column 1 and column 2
+            var col1 = !isNaN(parseFloat(values["CAP1_R" + i + "_C1"])) ? parseFloat(values["CAP1_R" + i + "_C1"]) : 0;
+            var col2 = !isNaN(parseFloat(values["CAP1_R" + i + "_C2"])) ? parseFloat(values["CAP1_R" + i + "_C2"]) : 0;
 
-                var col1 = !isNaN(parseFloat(values["CAP1_R" + (i) + "_C1"])) ? parseFloat(values["CAP1_R" + (i) + "_C1"]) : 0;
-                var col2 = !isNaN(parseFloat(values["CAP1_R" + (i) + "_C2"])) ? parseFloat(values["CAP1_R" + (i) + "_C2"]) : 0;
+            col1 = roundToDecimal(col1, 1);
+            col2 = roundToDecimal(col2, 1);
 
-                col1 = roundToDecimal(col1, 1);
-                col2 = roundToDecimal(col2, 1);
-                if (col1 < col2) {
-                    webform.errors.push({
-                        'fieldName': 'CAP1_R' + (i) + '_C1',
-                        'weight': 6,
-                        'msg': Drupal.t('Cod eroare: 45-002. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
-                    });
-                }
+            if (col1 < col2) {
+                webform.errors.push({
+                    'fieldName': 'CAP1_R' + i + '_C1',
+                    'weight': 6,
+                    'msg': Drupal.t('Cod eroare: 45-002. [@col1] - col.1  ≥  col.2 - [@col2]', { "@col1": col1, "@col2": col2 })
+                });
+            }
+
+            // Validation for column 3 and column 4
+            var col3 = !isNaN(parseFloat(values["CAP1_R" + i + "_C3"])) ? parseFloat(values["CAP1_R" + i + "_C3"]) : 0;
+            var col4 = !isNaN(parseFloat(values["CAP1_R" + i + "_C4"])) ? parseFloat(values["CAP1_R" + i + "_C4"]) : 0;
+
+            col3 = roundToDecimal(col3, 1);
+            col4 = roundToDecimal(col4, 1);
+
+            if (col3 < col4) {
+                webform.errors.push({
+                    'fieldName': 'CAP1_R' + i + '_C3',
+                    'weight': 6,
+                    'msg': Drupal.t('Cod eroare: 45-002. [@col3] - col.3  ≥  col.4 - [@col4]', { "@col3": col3, "@col4": col4 })
+                });
             }
         }
     }
 }
 
 
-//This is one sample
 function validate45_001_F(values) {
     for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
         var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
@@ -253,8 +320,9 @@ function validate45_001_F(values) {
             // Include the condition to filter rows using row_45_CAP1
             if (row_45_CAP1(i)) {
                 var col1_F = 0, col2_F = 0;
+                var col3_F = 0, col4_F = 0;
 
-                // Check if properties exist and are valid numbers
+                // Check if properties exist and are valid numbers for columns 1 and 2
                 if (values["CAP1_R" + i + "_C1_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C1_FILIAL"][j]))) {
                     col1_F = Number(values["CAP1_R" + i + "_C1_FILIAL"][j]);
                 }
@@ -269,14 +337,42 @@ function validate45_001_F(values) {
                         'fieldName': 'CAP1_R' + i + '_C1_FILIAL',
                         'index': j,
                         'weight': 6,
-                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-001-F. [@row_FILIAL] - COL1(@col1_F) < COL2(@col2_F)', { '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL, '@row_FILIAL': i, '@col1_F': col1_F, '@col2_F': col2_F })
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-001-F. [@row_FILIAL] - COL1(@col1_F) < COL2(@col2_F)', {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@row_FILIAL': i,
+                            '@col1_F': col1_F,
+                            '@col2_F': col2_F
+                        })
+                    });
+                }
+
+                // Check if properties exist and are valid numbers for columns 3 and 4
+                if (values["CAP1_R" + i + "_C3_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C3_FILIAL"][j]))) {
+                    col3_F = Number(values["CAP1_R" + i + "_C3_FILIAL"][j]);
+                }
+
+                if (values["CAP1_R" + i + "_C4_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C4_FILIAL"][j]))) {
+                    col4_F = Number(values["CAP1_R" + i + "_C4_FILIAL"][j]);
+                }
+
+                // Validation: col3_F should be greater than or equal to col4_F
+                if (col3_F < col4_F) {
+                    webform.errors.push({
+                        'fieldName': 'CAP1_R' + i + '_C3_FILIAL',
+                        'index': j,
+                        'weight': 6,
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-001-F. [@row_FILIAL] - COL3(@col3_F) < COL4(@col4_F)', {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@row_FILIAL': i,
+                            '@col3_F': col3_F,
+                            '@col4_F': col4_F
+                        })
                     });
                 }
             }
         }
     }
 }
-
 
 
 function validate45_002_F(values) {
@@ -286,8 +382,9 @@ function validate45_002_F(values) {
         for (var i = 1610; i <= 1690; i++) {
             if (row_45_CAP1_1610_1690(i)) {
                 var col1_F = 0, col2_F = 0;
+                var col3_F = 0, col4_F = 0;
 
-                // Check if properties exist and are valid numbers
+                // Check if properties exist and are valid numbers for columns 1 and 2
                 if (values["CAP1_R" + i + "_C1_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C1_FILIAL"][j]))) {
                     col1_F = Number(values["CAP1_R" + i + "_C1_FILIAL"][j]);
                 }
@@ -314,10 +411,39 @@ function validate45_002_F(values) {
                         })
                     });
                 }
+
+                // Check if properties exist and are valid numbers for columns 3 and 4
+                if (values["CAP1_R" + i + "_C3_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C3_FILIAL"][j]))) {
+                    col3_F = Number(values["CAP1_R" + i + "_C3_FILIAL"][j]);
+                }
+
+                if (values["CAP1_R" + i + "_C4_FILIAL"] && !isNaN(Number(values["CAP1_R" + i + "_C4_FILIAL"][j]))) {
+                    col4_F = Number(values["CAP1_R" + i + "_C4_FILIAL"][j]);
+                }
+
+                // Round to one decimal place
+                col3_F = roundToDecimal(col3_F, 1);
+                col4_F = roundToDecimal(col4_F, 1);
+
+                // Validation: col3_F should be greater than or equal to col4_F
+                if (col3_F < col4_F) {
+                    webform.errors.push({
+                        'fieldName': 'CAP1_R' + i + '_C3_FILIAL',
+                        'index': j,
+                        'weight': 6,
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-002-F. [@row_FILIAL] - col.3(@col3_F) ≥ col.4(@col4_F)', {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@row_FILIAL': i,
+                            '@col3_F': col3_F,
+                            '@col4_F': col4_F
+                        })
+                    });
+                }
             }
         }
     }
 }
+
 
 
 //    
