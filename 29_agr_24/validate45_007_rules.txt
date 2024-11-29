@@ -1,0 +1,45 @@
+
+// Validation function for CAP1: row 1430 columns 1-4 ≥ row 1431 columns 1-4
+function validate45_007(values) {
+    var colNames = ["C1", "C2", "C3", "C4"];
+    for (var col of colNames) {
+        var col_1430 = !isNaN(Number(values["CAP1_R1430_" + col])) ? Number(values["CAP1_R1430_" + col]) : 0;
+        var col_1431 = !isNaN(Number(values["CAP1_R1431_" + col])) ? Number(values["CAP1_R1431_" + col]) : 0;
+
+        if (col_1430 < col_1431) {
+            webform.errors.push({
+                'fieldName': 'CAP1_R1430_' + col,
+                'weight': 6,
+                'msg': Drupal.t('Cod eroare: 45-007. Rând.1430 col. ' + col + ' ≥ Rând.1431 col. ' + col + '. Valoarea rândului 1430: ' + col_1430 + ', valoarea rândului 1431: ' + col_1431)
+            });
+        }
+    }
+}
+
+// Validation function for CAP1 FILIAL: row 1430 columns 1-4 ≥ row 1431 columns 1-4
+function validate45_007_F(values) {
+    var colNames = ["C1", "C2", "C3", "C4"];
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var col of colNames) {
+            var col_1430_F = values["CAP1_R1430_" + col + "_FILIAL"] && !isNaN(Number(values["CAP1_R1430_" + col + "_FILIAL"][j]))
+                ? Number(values["CAP1_R1430_" + col + "_FILIAL"][j])
+                : 0;
+            var col_1431_F = values["CAP1_R1431_" + col + "_FILIAL"] && !isNaN(Number(values["CAP1_R1431_" + col + "_FILIAL"][j]))
+                ? Number(values["CAP1_R1431_" + col + "_FILIAL"][j])
+                : 0;
+
+            if (col_1430_F < col_1431_F) {
+                webform.errors.push({
+                    'fieldName': 'CAP1_R1430_' + col + '_FILIAL',
+                    'index': j,
+                    'weight': 6,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-007-F. Rând.1430 col. ' + col + ' ≥ Rând.1431 col. ' + col + '. Valoarea rândului 1430: ' + col_1430_F + ', valoarea rândului 1431: ' + col_1431_F, {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                    })
+                });
+            }
+        }
+    }
+}

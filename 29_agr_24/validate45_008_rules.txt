@@ -1,0 +1,50 @@
+
+// Validation function for CAP1: row 1490 col.2 ≥ sum of rows 1491 and 1492 col.2
+function validate45_008(values) {
+    var col = "C2";
+    var col_1490 = !isNaN(Number(values["CAP1_R1490_" + col])) ? Number(values["CAP1_R1490_" + col]) : 0;
+    var col_sum = 0;
+
+    // Sum rows 1491 and 1492 for col.2
+    for (var row = 1491; row <= 1492; row++) {
+        col_sum += !isNaN(Number(values["CAP1_R" + row + "_" + col])) ? Number(values["CAP1_R" + row + "_" + col]) : 0;
+    }
+
+    if (col_1490 < col_sum) {
+        webform.errors.push({
+            'fieldName': 'CAP1_R1490_' + col,
+            'weight': 6,
+            'msg': Drupal.t('Cod eroare: 45-008. Rând.1490 col.2 trebuie să fie ≥ suma rândurilor 1491+1492 col.2. Valoarea rândului 1490: ' + col_1490 + ', suma calculată: ' + col_sum)
+        });
+    }
+}
+
+// Validation function for CAP1 FILIAL: row 1490 col.2 ≥ sum of rows 1491 and 1492 col.2
+function validate45_008_F(values) {
+    var col = "C2";
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+        var col_1490_F = values["CAP1_R1490_" + col + "_FILIAL"] && !isNaN(Number(values["CAP1_R1490_" + col + "_FILIAL"][j]))
+            ? Number(values["CAP1_R1490_" + col + "_FILIAL"][j])
+            : 0;
+        var col_sum_F = 0;
+
+        // Sum rows 1491 and 1492 for col.2
+        for (var row = 1491; row <= 1492; row++) {
+            if (values["CAP1_R" + row + "_" + col + "_FILIAL"] && !isNaN(Number(values["CAP1_R" + row + "_" + col + "_FILIAL"][j]))) {
+                col_sum_F += Number(values["CAP1_R" + row + "_" + col + "_FILIAL"][j]);
+            }
+        }
+
+        if (col_1490_F < col_sum_F) {
+            webform.errors.push({
+                'fieldName': 'CAP1_R1490_' + col + '_FILIAL',
+                'index': j,
+                'weight': 6,
+                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-008-F. Rând.1490 col.2 trebuie să fie ≥ suma rândurilor 1491+1492 col.2. Valoarea rândului 1490: ' + col_1490_F + ', suma calculată: ' + col_sum_F, {
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+    }
+}
