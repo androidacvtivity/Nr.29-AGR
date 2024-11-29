@@ -33,6 +33,8 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     validate45_009(values);
     validate45_010(values);
     validate45_011(values);
+    validate45_012(values);
+    validate45_013(values);
 
     validate45_001_F(values);
     validate45_002_F(values);
@@ -45,6 +47,8 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     validate45_009_F(values);
     validate45_010_F(values);
     validate45_011_F(values);
+    validate45_012_F(values);
+    validate45_013_F(values);
 
     //-----------------------------------------------------
 
@@ -60,6 +64,86 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
 }
 //-----------------------------------------------------------
 
+function validate45_013(values) {
+    var col = "C1";
+    var col_7740 = !isNaN(Number(values["CAP3_R7740_" + col])) ? Number(values["CAP3_R7740_" + col]) : 0;
+    var col_7741 = !isNaN(Number(values["CAP3_R7741_" + col])) ? Number(values["CAP3_R7741_" + col]) : 0;
+
+    if (col_7740 < col_7741) {
+        webform.errors.push({
+            'fieldName': 'CAP3_R7740_' + col,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 45-013. Rând.7740 col.1 trebuie să fie ≥ Rând.7741 col.1. Valoarea rândului 7740: ' + col_7740 + ', valoarea rândului 7741: ' + col_7741)
+        });
+    }
+}
+
+function validate45_013_F(values) {
+    var col = "C1";
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+        var col_7740_F = values["CAP3_R7740_" + col + "_FILIAL"] && !isNaN(Number(values["CAP3_R7740_" + col + "_FILIAL"][j]))
+            ? Number(values["CAP3_R7740_" + col + "_FILIAL"][j])
+            : 0;
+        var col_7741_F = values["CAP3_R7741_" + col + "_FILIAL"] && !isNaN(Number(values["CAP3_R7741_" + col + "_FILIAL"][j]))
+            ? Number(values["CAP3_R7741_" + col + "_FILIAL"][j])
+            : 0;
+
+        if (col_7740_F < col_7741_F) {
+            webform.errors.push({
+                'fieldName': 'CAP3_R7740_' + col + '_FILIAL',
+                'index': j,
+                'weight': 19,
+                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-013-F. Rând.7740 col.1 trebuie să fie ≥ Rând.7741 col.1. Valoarea rândului 7740: ' + col_7740_F + ', valoarea rândului 7741: ' + col_7741_F, {
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+    }
+}
+
+//-----------------------------------------------------------
+// Validation function for CAP3: row 7640 col.1 ≥ row 7641 col.1
+function validate45_012(values) {
+    var col = "C1";
+    var col_7640 = !isNaN(Number(values["CAP3_R7640_" + col])) ? Number(values["CAP3_R7640_" + col]) : 0;
+    var col_7641 = !isNaN(Number(values["CAP3_R7641_" + col])) ? Number(values["CAP3_R7641_" + col]) : 0;
+
+    if (col_7640 < col_7641) {
+        webform.errors.push({
+            'fieldName': 'CAP3_R7640_' + col,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 45-012. Rând.7640 col.1 trebuie să fie ≥ Rând.7641 col.1. Valoarea rândului 7640: ' + col_7640 + ', valoarea rândului 7641: ' + col_7641)
+        });
+    }
+}
+
+// Validation function for CAP3 FILIAL: row 7640 col.1 ≥ row 7641 col.1
+function validate45_012_F(values) {
+    var col = "C1";
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+        var col_7640_F = values["CAP3_R7640_" + col + "_FILIAL"] && !isNaN(Number(values["CAP3_R7640_" + col + "_FILIAL"][j]))
+            ? Number(values["CAP3_R7640_" + col + "_FILIAL"][j])
+            : 0;
+        var col_7641_F = values["CAP3_R7641_" + col + "_FILIAL"] && !isNaN(Number(values["CAP3_R7641_" + col + "_FILIAL"][j]))
+            ? Number(values["CAP3_R7641_" + col + "_FILIAL"][j])
+            : 0;
+
+        if (col_7640_F < col_7641_F) {
+            webform.errors.push({
+                'fieldName': 'CAP3_R7640_' + col + '_FILIAL',
+                'index': j,
+                'weight': 19,
+                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-012-F. Rând.7640 col.1 trebuie să fie ≥ Rând.7641 col.1. Valoarea rândului 7640: ' + col_7640_F + ', valoarea rândului 7641: ' + col_7641_F, {
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+    }
+}
+
+//----------------------------------------------------------
 
 // Validation function for CAP2: if col.2 = 0, then col.4 = 0; if col.2 ≠ 0, then col.4 ≠ 0 for all rows in CAP2
 function validate45_011(values) {
