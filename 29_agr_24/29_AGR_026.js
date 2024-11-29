@@ -32,6 +32,7 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     validate45_008(values);
     validate45_009(values);
     validate45_010(values);
+    validate45_011(values);
 
     validate45_001_F(values);
     validate45_002_F(values);
@@ -41,7 +42,10 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     validate45_006_F(values);
     validate45_007_F(values);
     validate45_008_F(values);
+    validate45_009_F(values);
     validate45_010_F(values);
+    validate45_011_F(values);
+
     //-----------------------------------------------------
 
     
@@ -56,6 +60,73 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
 }
 //-----------------------------------------------------------
 
+
+// Validation function for CAP2: if col.2 = 0, then col.4 = 0; if col.2 ≠ 0, then col.4 ≠ 0 for all rows in CAP2
+function validate45_011(values) {
+    var rows = [7100, 7110, 7120, 7130, 7140, 7200, 7210, 7220, 7230, 7240, 7250, 7260,
+        7300, 7310, 7320, 7330, 7400, 7410, 7420, 7430, 7440, 7450, 7460, 7470,
+        7480, 7490, 7500, 7510, 7520]; // All rows from CAP2
+    for (var row of rows) {
+        var col2 = !isNaN(Number(values["CAP2_R" + row + "_C2"])) ? Number(values["CAP2_R" + row + "_C2"]) : 0;
+        var col4 = !isNaN(Number(values["CAP2_R" + row + "_C4"])) ? Number(values["CAP2_R" + row + "_C4"]) : 0;
+
+        if (col2 === 0 && col4 !== 0) {
+            webform.errors.push({
+                'fieldName': 'CAP2_R' + row + '_C2',
+                'weight': 19,
+                'msg': Drupal.t('Cod eroare: CAP2-001. Dacă col.2 = 0, atunci col.4 = 0. Rând: ' + row + ', col.2: ' + col2 + ', col.4: ' + col4)
+            });
+        } else if (col2 !== 0 && col4 === 0) {
+            webform.errors.push({
+                'fieldName': 'CAP2_R' + row + '_C4',
+                'weight': 19,
+                'msg': Drupal.t('Cod eroare: 45-011. Dacă col.2 ≠ 0, atunci col.4 ≠ 0. Rând: ' + row + ', col.2: ' + col2 + ', col.4: ' + col4)
+            });
+        }
+    }
+}
+
+
+// Validation function for CAP2 FILIAL: if col.2 = 0, then col.4 = 0; if col.2 ≠ 0, then col.4 ≠ 0 for all rows in CAP2
+function validate45_011_F(values) {
+    var rows = [7100, 7110, 7120, 7130, 7140, 7200, 7210, 7220, 7230, 7240, 7250, 7260,
+        7300, 7310, 7320, 7330, 7400, 7410, 7420, 7430, 7440, 7450, 7460, 7470,
+        7480, 7490, 7500, 7510, 7520]; // All rows from CAP2
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var row of rows) {
+            var col2_F = values["CAP2_R" + row + "_C2_FILIAL"] && !isNaN(Number(values["CAP2_R" + row + "_C2_FILIAL"][j]))
+                ? Number(values["CAP2_R" + row + "_C2_FILIAL"][j])
+                : 0;
+            var col4_F = values["CAP2_R" + row + "_C4_FILIAL"] && !isNaN(Number(values["CAP2_R" + row + "_C4_FILIAL"][j]))
+                ? Number(values["CAP2_R" + row + "_C4_FILIAL"][j])
+                : 0;
+
+            if (col2_F === 0 && col4_F !== 0) {
+                webform.errors.push({
+                    'fieldName': 'CAP2_R' + row + '_C2_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: CAP2-001-F. Dacă col.2 = 0, atunci col.4 = 0. Rând: ' + row + ', col.2: ' + col2_F + ', col.4: ' + col4_F, {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                    })
+                });
+            } else if (col2_F !== 0 && col4_F === 0) {
+                webform.errors.push({
+                    'fieldName': 'CAP2_R' + row + '_C4_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-011-F. Dacă col.2 ≠ 0, atunci col.4 ≠ 0. Rând: ' + row + ', col.2: ' + col2_F + ', col.4: ' + col4_F, {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                    })
+                });
+            }
+        }
+    }
+}
+
+//-----------------------------------------------------------
 
 // Validation function for CAP1: row 5000 col.1 ≥ row 5100 col.1
 function validate45_010(values) {
