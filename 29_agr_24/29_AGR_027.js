@@ -50,6 +50,7 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     validate45_012_F(values);
     validate45_013_F(values);
 
+    validate_CUATM_FILIAL(values);
     //-----------------------------------------------------
 
     
@@ -62,6 +63,29 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     webform.validatorsStatus['agr29_24'] = 1;
     validateWebform();
 }
+//---------------------------------------------------------------
+
+function validate_CUATM_FILIAL(values) {
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+
+        var CAP_CUATM_FILIAL = String(values.CAP_CUATM_FILIAL[j] || "").trim(); // Safely handle undefined or null
+        var CAP_NUM_FILIAL = Number(values.CAP_NUM_FILIAL[j]);
+
+        // Check if CAP_NUM_FILIAL exists but CAP_CUATM_FILIAL is missing
+        if (CAP_NUM_FILIAL && CAP_CUATM_FILIAL === "") {
+            webform.errors.push({
+                'fieldName': 'CAP_CUATM_FILIAL',
+                'index': j,
+                'weight': 20,
+                'msg': Drupal.t('Raion: @CAP_NUM_FILIAL - Cod eroare: 45-020.  - Dacă există Nr. [@CAP_NUM_FILIAL], atunci trebuie să existe și cod CUATM.', {
+                    '@CAP_NUM_FILIAL': CAP_NUM_FILIAL,
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+    }
+}
+
 //-----------------------------------------------------------
 
 function validate45_013(values) {
