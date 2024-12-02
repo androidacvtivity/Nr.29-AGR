@@ -63,11 +63,15 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     webform.validatorsStatus['agr29_24'] = 1;
     validateWebform();
 }
+
+
+
 //---------------------------------------------------------------
 
 function validate_CUATM_FILIAL(values) {
-    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+    var seenCUATM = new Set(); // Set to track duplicates
 
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
         var CAP_CUATM_FILIAL = String(values.CAP_CUATM_FILIAL[j] || "").trim(); // Safely handle undefined or null
         var CAP_NUM_FILIAL = Number(values.CAP_NUM_FILIAL[j]);
 
@@ -82,6 +86,22 @@ function validate_CUATM_FILIAL(values) {
                     '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
                 })
             });
+        }
+
+        // Check for duplicate CAP_CUATM_FILIAL values
+        if (CAP_CUATM_FILIAL) {
+            if (seenCUATM.has(CAP_CUATM_FILIAL)) {
+                webform.errors.push({
+                    'fieldName': 'CAP_CUATM_FILIAL',
+                    'index': j,
+                    'weight': 10,
+                    'msg': Drupal.t('Codul CUATM: @CAP_CUATM_FILIAL este duplicat. Fiecare cod CUATM trebuie să fie unic.', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                    })
+                });
+            } else {
+                seenCUATM.add(CAP_CUATM_FILIAL);
+            }
         }
     }
 }
