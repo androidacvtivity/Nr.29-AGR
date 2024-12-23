@@ -57,6 +57,9 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
 
     validate_CAP1_R5000_C1(values);
     validate_CAP1_R5000_C1_F(values);
+
+    validate_CAP1_R5100_C1(values);
+    validate_CAP1_R5100_C1_F(values);
     //-----------------------------------------------------
 
     
@@ -69,6 +72,62 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     webform.validatorsStatus['agr29_24'] = 1;
     validateWebform();
 }
+
+//-------------------------------------------------------------------------------
+
+// Validation function for FILIAL: CAP1_R5100_C1 >= CAP1_R2000_C1 - CAP1_R2100_C1
+function validate_CAP1_R5100_C1_F(values) {
+    var col1 = "C1";
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        var CAP1_R5100_F = values["CAP1_R5100_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP1_R5100_" + col1 + "_FILIAL"][j]))
+            ? Number(values["CAP1_R5100_" + col1 + "_FILIAL"][j])
+            : 0;
+        var CAP1_R2000_F = values["CAP1_R2000_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP1_R2000_" + col1 + "_FILIAL"][j]))
+            ? Number(values["CAP1_R2000_" + col1 + "_FILIAL"][j])
+            : 0;
+        var CAP1_R2100_F = values["CAP1_R2100_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP1_R2100_" + col1 + "_FILIAL"][j]))
+            ? Number(values["CAP1_R2100_" + col1 + "_FILIAL"][j])
+            : 0;
+
+        var calculatedDifference_F = CAP1_R2000_F - CAP1_R2100_F;
+
+        if (CAP1_R5100_F < calculatedDifference_F) {
+            webform.errors.push({
+                'fieldName': 'CAP1_R5100_' + col1 + '_FILIAL',
+                'index': j,
+                'weight': 19,
+                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-015-F. Valoarea CAP1 Rând.5100 col.1 trebuie să fie ≥ CAP1 Rând.2000 col.1 - CAP1 Rând.2100 col.1. Valoarea găsită: ' + CAP1_R5100_F + ', valoarea minimă așteptată: ' + calculatedDifference_F, {
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+    }
+}
+
+
+// Validation function: CAP1_R5100_C1 >= CAP1_R2000_C1 - CAP1_R2100_C1
+function validate_CAP1_R5100_C1(values) {
+    var col1 = "C1";
+
+    var CAP1_R5100 = !isNaN(Number(values["CAP1_R5100_" + col1])) ? Number(values["CAP1_R5100_" + col1]) : 0;
+    var CAP1_R2000 = !isNaN(Number(values["CAP1_R2000_" + col1])) ? Number(values["CAP1_R2000_" + col1]) : 0;
+    var CAP1_R2100 = !isNaN(Number(values["CAP1_R2100_" + col1])) ? Number(values["CAP1_R2100_" + col1]) : 0;
+
+    var calculatedDifference = CAP1_R2000 - CAP1_R2100;
+
+    if (CAP1_R5100 < calculatedDifference) {
+        webform.errors.push({
+            'fieldName': 'CAP1_R5100_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 45-015. Valoarea CAP1 Rând.5100 col.1 trebuie să fie ≥ CAP1 Rând.2000 col.1 - CAP1 Rând.2100 col.1. Valoarea găsită: ' + CAP1_R5100 + ', valoarea minimă așteptată: ' + calculatedDifference)
+        });
+    }
+}
+
+
 
 //--------------------------------------------------------------------------
 

@@ -1,23 +1,5 @@
-NR. 29-agr (anual)
-
-29_agr24
-december0224
-
-Buna ziua. 
-Am finisat raportul cu ID = 29_agr24 (Nr. NR. 29-agr (anual))
-Am creat branch - december0224 
-(december0224	7e700b6c	Commit to december0224 by vitalie.bancu at 2024-12-02 14:56 - Added new report 29_agr24 - 29_AGR_028.js)
  
- Solicitam plasarea pe productie. 
 
-Raportul cu ID = 29_agr Sa fie eliminat din lista rapoartelor pentru BNS si sa fie adaugat raportul nou (ID = 29_agr24). 
-Pe 05.12.24 el trebuie sa fie activ de ja pentru colectare online. 
-Acum creiezi procesul verbal. Il prezint la semnare si azi sau maine vil trimit. 
+Rand 5100 col.1 >= Rand 2000 col.1 - Rand 2100 col.1
 
-Buna ziua. 
-Solicitam plasarea pe productie a raportului   Nr. NR. 29-agr (anual) -- PRODUCȚIA VEGETALĂ
-Este raport  nou. 
- ID = 29_agr24 (Nr. NR. 29-agr (anual))
-
-
-Am creat branch  december0424	eb67cb75	Commit to december0424 by vitalie.bancu at 2024-12-04 15:47 - Added new report 29_agr24 - 29_AGR_030.js
+CAP1_R5100_C1 >=  CAP1_R2000_C1 -  CAP1_R2100_C1
