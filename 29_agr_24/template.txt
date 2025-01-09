@@ -1,5 +1,2 @@
- 
-
-Rand 5100 col.1 >= Rand 2000 col.1 - Rand 2100 col.1
-
-CAP1_R5100_C1 >=  CAP1_R2000_C1 -  CAP1_R2100_C1
+Suprafata, recoltata globala si productia medie a secarei de toamna	Tab.005
+Suprafaţa, recolta globală şi producţia medie a orzului de toamnă 					Tab.006
