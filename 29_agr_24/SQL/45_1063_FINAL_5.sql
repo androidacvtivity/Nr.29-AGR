@@ -1,0 +1,7 @@
+  SELECT *
+  
+  FROM USER_BANCU.KATALOG_45_1063
+--  
+--  WHERE
+--  CUIIO LIKE  1210633||'%'
+--  ; 
