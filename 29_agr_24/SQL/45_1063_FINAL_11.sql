@@ -1,0 +1,39 @@
+CREATE TABLE USER_BANCU.KATALOG_45_1063_24
+(
+ 
+  CUIIO              NUMBER,
+  PARENT_CUIIO       NUMBER,
+  CUIIO_VERS  NUMBER,
+  DENUMIRE    VARCHAR2(1024 BYTE),
+  CUATM       VARCHAR2(1024 BYTE),
+  PARENT_CUATM       VARCHAR2(1024 BYTE),
+  CFP         VARCHAR2(1024 BYTE),
+  CFOJ        VARCHAR2(1024 BYTE),
+  COCM        VARCHAR2(1024 BYTE),
+  CAEM2       VARCHAR2(1024 BYTE),
+  CAEM       VARCHAR2(1024 BYTE),
+  IDNO        VARCHAR2(1024 BYTE),  ---
+  SORT_ORDER              NUMBER,
+  ORDINE                  NUMBER
+
+)
+TABLESPACE TBS_DTI_USERS
+PCTUSED    0
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+MONITORING;
+
+
+---------------------------------------------
