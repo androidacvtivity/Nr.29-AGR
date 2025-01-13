@@ -1,2 +1,33 @@
+
+Sheet - T.1.1 - Finisat
+
+Suprafaţa, recolta globală şi roada medie a culturilor cerealiere şi leguminoase - TOTAL 							
+
+	Tab.001
+Suprafaţa, recolta globală şi producţia medie a culturilor cerealiere şi leguminoase - TOTAL (fără porumb)	Tab.002
+Suprafaţa, recolta globală şi producţia medie a culturilor cerealiere de toamnă								Tab.003
+Suprafaţa, recolta globală şi producţia medie a grâului de toamnă				
+	Tab.004
 Suprafata, recoltata globala si productia medie a secarei de toamna	Tab.005
 Suprafaţa, recolta globală şi producţia medie a orzului de toamnă 					Tab.006
+Suprafaţa, recolta globală şi producţia medie a altor culturi cerealiere de toamnă								Tab.007
+Suprafaţa, recolta globală şi producţia medie a grâului de primăvară	Tab.008
+Suprafaţa, recolta globală şi producţia medie a orzului de primăvară	Tab.009
+Suprafaţa, recolta globală şi producţia medie a ovăzului	Tab.010
+Suprafaţa, recolta globală şi producţia medie a culturilor păioase în amestec	Tab.011
+Suprafaţa, recolta globală şi producţia medie a porumbului pentru boabe	Tab.012
+Suprafaţa, recolta globală şi producţia medie a semănăturilor marfă de porumb pentru boabe de coacere deplina	Tab.013
+Suprafaţa, recolta globală şi producţia medie a semănăturilor de porumb-boabe pentru seminte	Tab.014
+Suprafata,recolta globala si productia medie a meiului	Tab.015
+Suprafata,recolta globala si productia medie a hrişcăi	Tab.016
+Suprafaţa, recolta globală şi producţia medie a culturilor leguminoase 	Tab.017
+Suprafaţa, recolta globală şi producţia medie a mazării (boabe uscate)	Tab.018
+Suprafaţa, recolta globală şi producţia medie a fasolei	Tab.019
+Suprafaţa, recolta globală şi producţia medie a lintei	Tab.020
+Suprafaţa, recolta globală şi producţia medie a leguminoaselor furajere pentru boabe	Tab.021
+Suprafaţa, recolta globală şi producţia medie a mazarichei si borceag cu mazariche (cu predominarea mazarichei) pentru boabe	Tab.022
+Suprafaţa, recolta globală şi producţia medie a altor culturi leguminoase pentru boabe	Tab.023
+Suprafaţa, recolta globală şi producţia medie a sorgului pentru boabe - TOTAL	Tab.024
+Suprafaţa, recolta globală şi producţia medie a sorguluii de pe samanaturile semincere	Tab.025
+Suprafaţa, recolta globală şi producţia medie a grâului - TOTAL (de toamnă şi primăvară)	Tab.026
+Suprafaţa, recolta globală şi producţia medie a orzului - TOTAL (de toamnă şi primăvară)	Tab.027
