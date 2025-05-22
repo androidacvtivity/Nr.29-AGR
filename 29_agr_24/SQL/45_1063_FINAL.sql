@@ -41,3 +41,12 @@ SELECT     R.CUIIO,
              WHERE FC.FORM IN (45) AND FC.STATUT <> '3') FC
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS);
+               
+               
+               
+               
+               
+               
+               
+               SELECT *
+               FROM USER_BANCU.VW_KAT_45_1064;

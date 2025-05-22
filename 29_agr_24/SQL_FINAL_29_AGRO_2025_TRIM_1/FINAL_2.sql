@@ -1,7 +1,7 @@
 SELECT *
-  FROM USER_BANCU.VW_KAT_45_1064; 
+  FROM USER_BANCU.VW_KAT_45_1065; 
 
-CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_KAT_45_1064 
+CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_KAT_45_1065 
 (
              CUIIO,
              CUIIO_VERS,
@@ -37,7 +37,7 @@ SELECT     R.CUIIO,
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (45) AND CUIIO_VERS <= 1064
+                                  WHERE FORM IN (45) AND CUIIO_VERS <= 1065
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
