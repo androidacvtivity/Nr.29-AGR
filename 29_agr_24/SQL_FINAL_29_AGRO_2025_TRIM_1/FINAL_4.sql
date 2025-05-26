@@ -6,7 +6,7 @@ FROM (
         -- Adaugam coloana PARENT_CUIIO
         COALESCE(
             (SELECT MIN(B.CUIIO)
-             FROM USER_BANCU.KATALOG_43_2014 B
+             FROM USER_BANCU.KATALOG_45_1065 B
              WHERE A.CUIIO LIKE TO_CHAR(B.CUIIO) || '%'
                AND A.CUIIO <> B.CUIIO),
             A.CUIIO
