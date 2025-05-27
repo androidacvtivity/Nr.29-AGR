@@ -1,3 +1,15 @@
+--        
+--
+--
+--
+--
+--        SELECT *
+--        FROM    USER_BANCU.VW_27_2012;
+--
+--
+--         CREATE OR REPLACE VIEW USER_BANCU.VW_27_2012  AS
+       
+        
         SELECT
                 D.CUIIO,
                 R.DENUMIRE,
@@ -14,7 +26,8 @@
                 SUM(CASE WHEN  D.capitol= 372   AND  D.RIND IN ('106')THEN D.COL1 ELSE NULL END ) AS cap3_r_106,
                 SUM(CASE WHEN  D.capitol= 373   AND  D.RIND IN ('149')THEN D.COL1 ELSE NULL END ) AS cap4_r_149,
                 SUM(CASE WHEN  D.capitol= 373   AND  D.RIND IN ('150')THEN D.COL1 ELSE NULL END ) AS cap4_r_150,
-                SUM(CASE WHEN  D.capitol= 373   AND  D.RIND IN ('148')THEN D.COL1 ELSE NULL END ) AS cap4_r_148
+                SUM(CASE WHEN  D.capitol= 373   AND  D.RIND IN ('148')THEN D.COL1 ELSE NULL END ) AS cap4_r_148,
+                SUM(CASE WHEN  D.capitol= 373   AND  D.RIND IN ('147')THEN D.COL1 ELSE NULL END ) AS cap4_r_147
                 
            
               
