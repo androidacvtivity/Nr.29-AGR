@@ -1,7 +1,7 @@
 SELECT *
-  FROM USER_BANCU.VW_KAT_43_2014;  ---------------------------------------------
+  FROM USER_BANCU.VW_KAT_43_2014;  --------------------------------------------------------------------
 
-CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_KAT_43_2014 ------------------------
+CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_KAT_43_2014 --------------------------------------------------
 (
              CUIIO,
              CUIIO_VERS,

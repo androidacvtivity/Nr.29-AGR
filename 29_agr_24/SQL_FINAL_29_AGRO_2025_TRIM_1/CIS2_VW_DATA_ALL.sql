@@ -1,0 +1,15 @@
+select DISTINCT 
+ CUIIO,
+ CUIIO_VERS 
+ 
+ from CIS2.VW_DATA_ALL
+ 
+ WHERE
+ 
+ PERIOADA IN (:pPERIOADA)
+             and CUIIO LIKE :pCUIIO||'%'
+
+
+AND 
+
+FORM IN (43)
