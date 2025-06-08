@@ -1,5 +1,5 @@
 SELECT *
-  FROM USER_BANCU.KATALOG_45_1065; 
+  FROM USER_BANCU.KATALOG_45_1065; --------------------------------------
 
 
 
