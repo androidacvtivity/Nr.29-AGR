@@ -1,12 +1,12 @@
 
----------------------------------------------------------
+
  
 ------------------------------------
 SELECT *
 FROM (
     -- Partea 1: Rândurile care satisfac rela?ia substring-string
     SELECT 
-        A.CUIIO,s
+        A.CUIIO,
         -- Adaugam coloana PARENT_CUIIO
         COALESCE(
             (SELECT MIN(B.CUIIO)
