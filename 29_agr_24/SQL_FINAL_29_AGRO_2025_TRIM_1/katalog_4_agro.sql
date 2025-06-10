@@ -79,28 +79,7 @@ SELECT FC.CUIIO,
 
 AND 
 
-FORM IN (43)
-
- ;
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+FORM IN (43);
  
  select DISTINCT 
  CUIIO,
@@ -128,7 +107,7 @@ select DISTINCT
  CUIIO,
  CUIIO_VERS 
  
- from USER_ERssEPORTING.DATA_ALL_PRIMIT
+ from USER_EREPORTING.DATA_ALL_PRIMIT
  
  WHERE
  
