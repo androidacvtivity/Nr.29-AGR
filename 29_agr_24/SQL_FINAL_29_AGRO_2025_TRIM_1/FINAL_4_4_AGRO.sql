@@ -1,7 +1,3 @@
-
-
- 
-------------------------------------
 SELECT *
 FROM (
     -- Partea 1: Rândurile care satisfac rela?ia substring-string
