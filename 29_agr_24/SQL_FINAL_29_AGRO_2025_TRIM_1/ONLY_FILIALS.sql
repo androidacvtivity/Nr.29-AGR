@@ -76,7 +76,7 @@ ORDER BY SORT_ORDER,
          CASE WHEN SORT_ORDER = 1 THEN LENGTH(CUIIO) END,
          CASE WHEN SORT_ORDER IN (3, 5) THEN CUIIO END DESC
          )
-         
+         ---------------------------
 
 WHERE 
 --SQL Oracle
@@ -84,6 +84,7 @@ WHERE
 -- CUIIO is number 
 --CUATM is varchar
 --Modifica aici 
-CUATM = CUIIO 
+--CUATM = CUIIO
+SUBSTR(CUATM, 1, 2) =  SUBSTR(TO_CHAR(CUIIO), -2) 
 
 ;
