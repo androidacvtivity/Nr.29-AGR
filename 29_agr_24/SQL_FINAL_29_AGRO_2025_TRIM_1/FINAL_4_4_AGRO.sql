@@ -1,4 +1,8 @@
 SELECT *
+
+FROM
+(
+SELECT *
 FROM (
     -- Partea 1: Rândurile care satisfac rela?ia substring-string
     SELECT 
@@ -155,4 +159,10 @@ FROM (
 ORDER BY SORT_ORDER, 
          CASE WHEN SORT_ORDER = 1 THEN SUBSTR(CUIIO, 1, 10) END,
          CASE WHEN SORT_ORDER = 1 THEN LENGTH(CUIIO) END,
-         CASE WHEN SORT_ORDER IN (3, 5) THEN CUIIO END DESC;
+         CASE WHEN SORT_ORDER IN (3, 5) THEN CUIIO END DESC
+         
+         )
+
+
+WHERE 
+SUBSTR(CUATM, 1, 2) =  SUBSTR(TO_CHAR(CUIIO), -2) 
