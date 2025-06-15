@@ -86,5 +86,5 @@ WHERE
 --Modifica aici 
 --CUATM = CUIIO
 SUBSTR(CUATM, 1, 2) =  SUBSTR(TO_CHAR(CUIIO), -2) 
-
+--71721361
 ;
