@@ -1,6 +1,8 @@
 SELECT FC.CUIIO,
        FC.CUIIO_VERS  
               FROM
+              
+              ------------------------------------------------
 
 (
 SELECT FC.CUIIO,
@@ -120,14 +122,6 @@ AND
 FORM IN (43)
 
  ;
- 
- 
- 
- 
- 
- 
- 
- 
  
  
  
