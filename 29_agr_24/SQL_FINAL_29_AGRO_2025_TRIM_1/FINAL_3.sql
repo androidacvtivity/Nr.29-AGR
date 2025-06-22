@@ -2,7 +2,7 @@ SELECT *
   FROM USER_BANCU.KATALOG_45_1065; 
 
 
-
+--------------------------------------------------------------------------------
 DELETE
   FROM USER_BANCU.KATALOG_45_1065; 
               
