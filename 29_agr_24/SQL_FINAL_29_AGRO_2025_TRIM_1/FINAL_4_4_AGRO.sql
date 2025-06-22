@@ -1,4 +1,4 @@
-SELECT *
+SELECT L.*
 -------------------------------------------------------------------------------------
 FROM
 (
@@ -161,7 +161,7 @@ ORDER BY SORT_ORDER,
          CASE WHEN SORT_ORDER = 1 THEN LENGTH(CUIIO) END,
          CASE WHEN SORT_ORDER IN (3, 5) THEN CUIIO END DESC
          
-         )
+         ) L
 
 
 --WHERE 

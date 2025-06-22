@@ -188,13 +188,3 @@
 [CAP1_R1900_C1_FILIAL] + [CAP1_R1700_C1_FILIAL] + [CAP1_R1400_C1_FILIAL] + [CAP1_R1300_C1_FILIAL]=[CAP1_R2000_C1_FILIAL{N}]msg(Error);
 
 
-
-Se prezinta informatia in 3 sheturi-
-1. 29 AGRO SORTAT DUPA CUATM - Se prezinta lista unitatilor statistice care au date in parametri solicitati - sortate dupa CUATM.
-2. 29 AGRO SORTAT DUPA CUIIO_PARINTE, FILIALA. - Se prezinta tot catalogul din perioada de analiza (2023) si daca sunt date - se afiseaza datele. 
-Se sorteaza - daca este CUIIO_PARINTE, CUIIO_PARITE imeidat dupa daca este filiala - se afiseaza filiala.     
-3. 29 AGR DUPA FILIALE - COLORARE  - Se coloreaza pentru o perceptie mai detaliata.  - Verde CUIIO PARINTE, galben FILIALA. 
-
-
-Datele sunt prezentate dupa fiecare cod cuiio - parinet si/sau filiala. 
-La solicitare se poate prezenta dupa parinte. 
