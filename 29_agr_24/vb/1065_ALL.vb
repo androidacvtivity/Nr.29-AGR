@@ -11,8 +11,10 @@ Sub InserareFilialaSiColorare()
     Set ws = ActiveSheet
 
     ' Se aplica logica doar pana la randul 2032
-    lastRow = 2032
-    lastCol = 13 ' Coloanele A-M
+    lastRow = 2013
+ lastCol = 13 ' Coloanele A-M 
+   --' lastCol = Range("DP1").Column
+    ' Sa modifc lasCol sa fie DP
 
     ' Parcurgem fiecare valoare din coloana A
     For i = 1 To lastRow
