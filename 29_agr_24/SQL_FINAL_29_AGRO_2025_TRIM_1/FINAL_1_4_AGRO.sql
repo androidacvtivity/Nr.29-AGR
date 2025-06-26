@@ -36,7 +36,9 @@ SELECT     R.CUIIO,
            
            
  
-       FROM (SELECT FC.CUIIO,
+       FROM (
+       
+       SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
