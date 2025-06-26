@@ -1,3 +1,7 @@
+
+' La logiva extenta trebuie de adaugat o logica nou - care numara cuiio sunt care au filiala si cate filiale sunt care
+' au cuiio mama si la sfarsit se creaza un rand nou de la inceput si se in sereaza rezultatul 
+' sunt N cuuio care au filiala si M filiala care au cuiio mama si sunt B filiale  care nu au cuiio mama 
 Sub InserareFilialaSiColorare()
     Dim ws As Worksheet
     Dim lastRow As Long, lastCol As Long
@@ -11,7 +15,7 @@ Sub InserareFilialaSiColorare()
     Set ws = ActiveSheet
 
     ' Se aplica logica doar pana la randul 2032
-    lastRow = 2032
+    lastRow = 1979
     lastCol = 13 ' Coloanele A-M
 
     ' Parcurgem fiecare valoare din coloana A

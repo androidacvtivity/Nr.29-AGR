@@ -1,22 +1,4 @@
-Buna dimineata. 
-Am executat interogarea  pentru catalogul - 29 agro - trim curent sa vad daca toate filialele au si PARENT CUIIO in catalog 
-din randul 1263 in excel pana la randul 1611 - sunt filiale fara parent cuiio -. trebuie adaugata si intreprinderea tata in catalog 
-ca sa poate sa transmita prin fisc. 
-
-
-
-
-Buna ziua Cristina. 
-De exemplu - in raportul https://edecbns-test.sfs.md/ro/declaration/add/1-inv 
-
-Nr.1-invest pe edecbns-test - nu putem afisa clasificatorul CUATM - dupa modiciarea din partea voastra 
-
-avem exemplu - 
-
-SELECT code, CONCAT(name, ', ',code ) FROM taxonomy_term_data t JOIN classifier_11 c ON c.tid = t.tid ORDER BY name
-
-
-SELECT code, CONCAT(name, ', ',code ) FROM taxonomy_term_data t JOIN vocabulary_11 c ON c.tid = t.tid ORDER BY nam
-
-
-Rugam dezvoltatorii vostri sa modifice corect ecest exemplu sa sa afiseze clasificatorul si de j ape viitor noi voim sti cum sa facem. Incerca, singuri dar nu am reusit.
+nu este corect - in lgica existenta 
+de le randul 1924 - pana 1971 majoritatea randurilor sunt colorate in galben si sunt colorate ultimile 2 caractere 
+din col A si primele 2 caractere din col C 
+nu sunt colorate nu mai 1959 si 1963 si 1965 - restul sunt colorate - acestea sunt filiale fara cuiio mama 
