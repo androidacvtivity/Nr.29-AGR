@@ -14,7 +14,7 @@ Sub InserareFilialaSiColorare()
     ' lastRow = 2013
     lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
 '  lastCol = 13 ' Coloanele A-M 
-    lastCol = Range("DP1").Column
+    lastCol = Range("D1").Column
     ' Sa modifc lasCol sa fie DP
 
     ' Parcurgem fiecare valoare din coloana A
