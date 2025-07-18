@@ -6,7 +6,7 @@ Sub InserareFilialaSiColorare()
     Dim cuiioTrimmed As String
     Dim primele2C As String
     Dim ultimele2A As String
-
+---------------
     ' Selectam foaia activa
     Set ws = ActiveSheet
 
