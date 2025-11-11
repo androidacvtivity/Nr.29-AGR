@@ -1,3 +1,3 @@
 
     SELECT *
-    FROM VW_DA_33_1065 
+    FROM VW_DA_33_1066 
