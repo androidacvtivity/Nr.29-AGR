@@ -1,5 +1,5 @@
 SELECT *
-  FROM USER_BANCU.VW_KAT_33_1065
+  FROM USER_BANCU.VW_KAT_33_1066
   
 --  WHERE 
 --  
@@ -8,7 +8,7 @@ SELECT *
 --CUIIO LIKE :pCUIIO||'%'
   ;  --------------------------------------------------------------------
 --------------------------------------------
-CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_KAT_33_1065 --------------------------------------------------16.06.2025
+CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_KAT_33_1066 --------------------------------------------------16.06.2025
 (
              CUIIO,
              CUIIO_VERS,
@@ -46,7 +46,7 @@ SELECT     R.CUIIO,
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (33) AND CUIIO_VERS <= 1065
+                                  WHERE FORM IN (33) AND CUIIO_VERS <= 1066
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
