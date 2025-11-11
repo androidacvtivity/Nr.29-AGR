@@ -1254,8 +1254,1152 @@
                          ELSE NULL
                      END),
                  0)
-                 AS CAP_2_2_R_1_C12
+                 AS CAP_2_2_R_1_C12,
                  -------------------------------------------
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('2') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_2_C12,
+                 
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('3') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_3_C12,
+                 
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('4') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_4_C12,
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('5') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_5_C12,
+                 
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('6') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_6_C12,
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('7') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_7_C12,
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('8') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_8_C12,
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('9') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_9_C12,
+                 
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('10') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_10_C12,
+                 
+                 ----------------------------------------------------------------------------  
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL1
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C1,
+                 
+                 
+                    NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL2
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C2,
+                 
+                 NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL3
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C3,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL4
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C4,
+                 
+                   NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL5
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C5,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL6
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C6,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL7
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C7,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL8
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C8,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL9
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C9,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL10
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C10,
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL11
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C11,
+                 
+                 
+                        NULLIF (
+                 SUM (
+                     CASE
+                         WHEN D.CAPITOL = 370 AND D.RIND IN ('11') THEN D.COL12
+                         ELSE NULL
+                     END),
+                 0)
+                 AS CAP_2_2_R_11_C12
                  
                  
                  
