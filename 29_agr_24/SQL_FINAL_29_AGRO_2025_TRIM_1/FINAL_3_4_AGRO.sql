@@ -36,4 +36,4 @@ DELETE
              CAEM2,
              CAEM,
              IDNO 
- FROM USER_BANCU.VW_KAT_33_1066;
+ FROM USER_BANCU.VW_KAT_27_2013;
