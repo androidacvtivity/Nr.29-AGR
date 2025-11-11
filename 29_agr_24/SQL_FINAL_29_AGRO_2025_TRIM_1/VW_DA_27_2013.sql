@@ -1,5 +1,5 @@
 --
---CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_DA_33_1066
+CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_DA_27_2013
 --(
 --    CUIIO,
 --    DATA_REG,
@@ -84,7 +84,7 @@
 --    CAP_1_2_R_10,
 --    CAP_1_2_R_11
 --)
---AS
+AS
       SELECT D.CUIIO,
              MAX (D.DATA_REG)
                  DATA_REG,
