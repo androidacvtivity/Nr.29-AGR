@@ -99,7 +99,7 @@ function validate_CAP1_R5100_C1_F(values) {
                 'fieldName': 'CAP1_R5100_' + col1 + '_FILIAL',
                 'index': j,
                 'weight': 19,
-                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-015-F. Valoarea CAP1 Rând.5100 col.1 trebuie să fie ≥ CAP1 Rând.2000 col.1 - CAP1 Rând.2100 col.1. Valoarea găsită: ' + CAP1_R5100_F + ', valoarea minimă așteptată: ' + calculatedDifference_F, {
+                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-078-F. Valoarea CAP1 Rând.5100 col.1 trebuie să fie ≥ CAP1 Rând.2000 col.1 - CAP1 Rând.2100 col.1. Valoarea găsită: ' + CAP1_R5100_F + ', valoarea minimă așteptată: ' + calculatedDifference_F, {
                     '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
                 })
             });
@@ -122,7 +122,7 @@ function validate_CAP1_R5100_C1(values) {
         webform.errors.push({
             'fieldName': 'CAP1_R5100_' + col1,
             'weight': 19,
-            'msg': Drupal.t('Cod eroare: 45-015. Valoarea CAP1 Rând.5100 col.1 trebuie să fie ≥ CAP1 Rând.2000 col.1 - CAP1 Rând.2100 col.1. Valoarea găsită: ' + CAP1_R5100 + ', valoarea minimă așteptată: ' + calculatedDifference)
+            'msg': Drupal.t('Cod eroare: 45-078. Valoarea CAP1 Rând.5100 col.1 trebuie să fie ≥ CAP1 Rând.2000 col.1 - CAP1 Rând.2100 col.1. Valoarea găsită: ' + CAP1_R5100 + ', valoarea minimă așteptată: ' + calculatedDifference)
         });
     }
 }
