@@ -1,0 +1,1 @@
+Tipul declarației e greșit (este 29_agr24, trebuie să fie agr29_24)
