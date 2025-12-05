@@ -18,20 +18,16 @@
 
 
 //--------------------------------------------------------------------------------
-//Modifica ambele validari sa fie  sa fie pentru 8 coloane (1-8) 
-//Autosuma CAP VII: R8510 + R8520 + R8530 + R8540 = R8500 (col.1)
-// 
-//
-function watchAutoSum_CAP7_R8500_C1() {
-    const inputIDs = [
-        '#CAP7_R8510_C1',
-        '#CAP7_R8520_C1',
-        '#CAP7_R8530_C1',
-        '#CAP7_R8540_C1'
-    ];
-    const targetID = '#CAP7_R8500_C1';
 
-    function getFloatValue(selector) {
+
+
+// Autosuma CAP VII: R8510 + R8520 + R8530 + R8540 = R8500 (col.1-8)
+function watchAutoSum_CAP7_R8500_C1() {
+    const rows = ['8510', '8520', '8530', '8540'];
+    const cols = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8'];
+
+    function getFloatValue(row, col) {
+        const selector = '#CAP7_R' + row + '_' + col;
         const raw = jQuery(selector).val();
         if (raw === undefined || raw === null || raw === '') {
             return 0;
@@ -43,81 +39,90 @@ function watchAutoSum_CAP7_R8500_C1() {
         return isNaN(val) ? 0 : val;
     }
 
-    function updateSum() {
-        const total = inputIDs
-            .map(getFloatValue)
-            .reduce((sum, val) => sum + val, 0);
+    function updateSumForCol(col) {
+        let total = 0;
 
+        for (let i = 0; i < rows.length; i++) {
+            total += getFloatValue(rows[i], col);
+        }
+
+        const targetID = '#CAP7_R8500_' + col;
         if (total > 0) {
-            // dacă vrei 1 zecimală, poți pune toFixed(1)
             jQuery(targetID).val(total);
         } else {
             jQuery(targetID).val('');
         }
     }
 
-    // Facem câmpul de total doar citire (ca la R134 / R184)
-    jQuery(targetID).prop('readonly', true);
+    // Setăm câmpurile de total (R8500, C1–C8) ca doar citire + stil doar pe număr
+    cols.forEach(function (col) {
+        const targetID = '#CAP7_R8500_' + col;
 
-    // const $cell = jQuery(targetID).closest('td');
-    // $cell.css({
-    //     'background-color': '#ebe9e6',
-    //     'padding': '4px'
-    // });
+        jQuery(targetID).prop('readonly', true);
 
-    jQuery(targetID).css({
-        // dacă vrei și un fundal discret numai sub număr:
-         'background-color': '#ebe9e6',
-        'color': '#0000cc',      // doar culoarea numărului
-        'border': 'none',
-        'text-align': 'right'
+        jQuery(targetID).css({
+            'background-color': '#ebe9e6', // doar input-ul, nu toată celula
+            'color': '#0000cc',
+            'border': 'none',
+            'text-align': 'right'
+        });
+
+        // calcul inițial (dacă sunt valori din DB)
+        updateSumForCol(col);
     });
 
     const events = 'input change keyup blur';
-    inputIDs.forEach(selector => {
-        jQuery(selector).on(events, updateSum);
+
+    // Legăm evenimente pe toate celulele sursă (8510, 8520, 8530, 8540) pentru toate coloanele
+    rows.forEach(function (row) {
+        cols.forEach(function (col) {
+            const selector = '#CAP7_R' + row + '_' + col;
+            jQuery(selector).on(events, function () {
+                updateSumForCol(col);
+            });
+        });
     });
-
-    // Rulăm o dată la încărcare (dacă vin valori din DB)
-    updateSum();
 }
-
 
 //----------------------------------------------------------
-// Validare CAP7: R8500 C1 = R8510+R8520+R8530+R8540 C1
+// Validare CAP7: R8500 C1–C8 = R8510+R8520+R8530+R8540 (pe fiecare coloană)
 function validate_CAP7_R8500_C1(values) {
-    var col = "C1";
-
-    var r8500 = !isNaN(Number(values["CAP7_R8500_" + col]))
-        ? Number(values["CAP7_R8500_" + col])
-        : 0;
-
     var rows = [8510, 8520, 8530, 8540];
-    var sum = 0;
 
-    for (var i = 0; i < rows.length; i++) {
-        var row = rows[i];
-        var key = "CAP7_R" + row + "_" + col;
-        if (!isNaN(Number(values[key]))) {
-            sum += Number(values[key]);
+    for (var c = 1; c <= 8; c++) {
+        var col = "C" + c;
+
+        var r8500Key = "CAP7_R8500_" + col;
+        var r8500 = !isNaN(Number(values[r8500Key]))
+            ? Number(values[r8500Key])
+            : 0;
+
+        var sum = 0;
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var key = "CAP7_R" + row + "_" + col;
+            if (!isNaN(Number(values[key]))) {
+                sum += Number(values[key]);
+            }
+        }
+
+        if (r8500 !== sum) {
+            webform.errors.push({
+                fieldName: r8500Key,
+                weight: 10,
+                msg: Drupal.t(
+                    'Cod eroare: CAP7-001. Rând.8500 col.@col trebuie să fie egală cu suma rândurilor 8510, 8520, 8530, 8540 col.@col. Valoarea rândului 8500: @v8500, suma calculată: @sum',
+                    {
+                        '@col': c,
+                        '@v8500': r8500,
+                        '@sum': sum
+                    }
+                )
+            });
         }
     }
-
-    if (r8500 !== sum) {
-        webform.errors.push({
-            'fieldName': 'CAP7_R8500_' + col,
-            'weight': 10,
-            'msg': Drupal.t(
-                'Cod eroare: CAP7-001. Rând.8500 col.1 trebuie să fie egală cu suma rândurilor 8510, 8520, 8530, 8540 col.1. Valoarea rândului 8500: @v8500, suma calculată: @sum',
-                {
-                    '@v8500': r8500,
-                    '@sum': sum
-                }
-            )
-        });
-    }
 }
-
 
 webform.validators.agr29_24 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
