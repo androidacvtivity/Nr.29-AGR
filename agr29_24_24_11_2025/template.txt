@@ -1,1 +1,4 @@
-Tipul declarației e greșit (este 29_agr24, trebuie să fie agr29_24)
+Analizeaza fisierile. Proectul este agr29_24 
+
+Dupa exemplu watchAutoSum_134 din fisierul inov_90_180.js 
+creaza la fel - autocalcularea [CAP7_R8540_C1] + [CAP7_R8530_C1] + [CAP7_R8520_C1] + [CAP7_R8510_C1]=[CAP7_R8500_C1]msg(Error); 
