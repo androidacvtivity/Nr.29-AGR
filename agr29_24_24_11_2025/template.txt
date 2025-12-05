@@ -1,4 +1,13 @@
-Analizeaza fisierile. Proectul este agr29_24 
+validate_CAP7_R8500_C1_F(values);  - Good work 
+watchAutoSum_CAP7_R8500_C1_FILIAL(); 
+1.Se coloreaza celulele 
+2. Se face readonly
+3. Dar nu se afiseaza rezultatul si la salvare nu se salveaza nimic fiindca nu se afiseaza si da eroare de ja la submit 
 
-Dupa exemplu watchAutoSum_134 din fisierul inov_90_180.js 
-creaza la fel - autocalcularea [CAP7_R8540_C1] + [CAP7_R8530_C1] + [CAP7_R8520_C1] + [CAP7_R8510_C1]=[CAP7_R8500_C1]msg(Error); 
+
+Daca te ajuta 
+
+[CAP5_R8360_C2]+[CAP5_R8350_C2]+[CAP5_R8340_C2]+[CAP5_R8330_C2]+[CAP5_R8320_C2] + [CAP5_R8310_C2]=[CAP5_R8300_C2]msg(Error);
+[CAP5_R8360_C2_FILIAL]+[CAP5_R8350_C2_FILIAL]+[CAP5_R8340_C2_FILIAL]+[CAP5_R8330_C2_FILIAL]+[CAP5_R8320_C2_FILIAL] + [CAP5_R8310_C2_FILIAL]=[CAP5_R8300_C2_FILIAL{N}]msg(Error);
+
+Asa este alt gen de autosuma 
