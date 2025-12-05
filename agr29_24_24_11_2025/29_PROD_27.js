@@ -362,7 +362,8 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
    
     //-----------------------------------------------------
- 
+    validate_CAP8_R8700(values);     // TOTAL
+    validate_CAP8_R8700_F(values);   // FILIALE
 
     validate_CAP7_R8600(values);     // TOTAL
     validate_CAP7_R8600_F(values);   // FILIALE
@@ -424,6 +425,116 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
 }
 
 
+//---------------------------------------------------------------
+
+//----------------------------------------------------------
+// CAP VIII – Legume de câmp
+// Rând.8700 (col.1–4) = suma rândurilor 8710–8860 (pe fiecare coloană)
+function validate_CAP8_R8700(values) {
+    var rows = [
+        8710, 8720, 8730, 8740,
+        8750, 8760, 8770, 8780,
+        8790, 8800, 8810, 8820,
+        8830, 8840, 8850, 8860
+    ];
+
+    for (var c = 1; c <= 4; c++) {
+        var col = "C" + c;
+
+        var r8700Key = "CAP8_R8700_" + col;
+        var r8700 = !isNaN(Number(values[r8700Key]))
+            ? Number(values[r8700Key])
+            : 0;
+
+        var sum = 0;
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var key = "CAP8_R" + row + "_" + col;
+            if (!isNaN(Number(values[key]))) {
+                sum += Number(values[key]);
+            }
+        }
+
+        if (r8700 !== sum) {
+            webform.errors.push({
+                fieldName: r8700Key,
+                weight: 10,
+                msg: Drupal.t(
+                    'Cod eroare: CAP8-001. Rând.8700 col.@col trebuie să fie egală cu suma rândurilor 8710–8860 col.@col. Valoarea rândului 8700: @v8700, suma calculată: @sum',
+                    {
+                        '@col': c,
+                        '@v8700': r8700,
+                        '@sum': sum
+                    }
+                )
+            });
+        }
+    }
+}
+
+
+//----------------------------------------------------------
+// CAP VIII FILIAL – Legume de câmp
+// Pentru fiecare filială N:
+// Rând.8700 (col.1–4) = suma rândurilor 8710–8860 (pe fiecare coloană)
+function validate_CAP8_R8700_F(values) {
+    var rows = [
+        8710, 8720, 8730, 8740,
+        8750, 8760, 8770, 8780,
+        8790, 8800, 8810, 8820,
+        8830, 8840, 8850, 8860
+    ];
+
+    if (!values.CAP_NUM_FILIAL || !values.CAP_CUATM_FILIAL) {
+        return;
+    }
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j]))
+            ? ""
+            : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var c = 1; c <= 4; c++) {
+            var col = "C" + c;
+
+            // 8700 FILIAL pentru filială j, col Cx
+            var arr8700 = values["CAP8_R8700_" + col + "_FILIAL"];
+            var r8700 = (arr8700 && !isNaN(Number(arr8700[j])))
+                ? Number(arr8700[j])
+                : 0;
+
+            var sum = 0;
+
+            // suma 8710–8860 pentru aceeași filială j, col Cx
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                var arr = values["CAP8_R" + row + "_" + col + "_FILIAL"];
+                if (arr && !isNaN(Number(arr[j]))) {
+                    sum += Number(arr[j]);
+                }
+            }
+
+            if (r8700 !== sum) {
+                webform.errors.push({
+                    fieldName: "CAP8_R8700_" + col + "_FILIAL",
+                    index: j,
+                    weight: 10,
+                    msg: Drupal.t(
+                        'Raion: @CAP_CUATM_FILIAL - Cod eroare: CAP8-001-F. Rând.8700 col.@col (filiale) trebuie să fie egală cu suma rândurilor 8710–8860 col.@col. Valoarea rândului 8700: @v8700, suma calculată: @sum',
+                        {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@col': c,
+                            '@v8700': r8700,
+                            '@sum': sum
+                        }
+                    )
+                });
+            }
+        }
+    }
+}
 
 //-------------------------------------------------------------------------------
 
