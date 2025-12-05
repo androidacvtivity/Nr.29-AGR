@@ -264,7 +264,7 @@ function validate_CAP7_R8500_C1_F(values) {
 function validate_CAP7_R8600(values) {
     var rows = [8610, 8620, 8630, 8640];
 
-    for (var c = 1; c <= 4; c++) {
+    for (var c = 1; c <= 8; c++) {
         var col = "C" + c;
 
         var r8600Key = "CAP7_R8600_" + col;
@@ -315,7 +315,7 @@ function validate_CAP7_R8600_F(values) {
             ? ""
             : String(values.CAP_CUATM_FILIAL[j]);
 
-        for (var c = 1; c <= 4; c++) {
+        for (var c = 1; c <= 8; c++) {
             var col = "C" + c;
 
             // 8600 FILIAL pentru filială j, col Cx
