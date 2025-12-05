@@ -1,13 +1,14 @@
-validate_CAP7_R8500_C1_F(values);  - Good work 
-watchAutoSum_CAP7_R8500_C1_FILIAL(); 
-1.Se coloreaza celulele 
-2. Se face readonly
-3. Dar nu se afiseaza rezultatul si la salvare nu se salveaza nimic fiindca nu se afiseaza si da eroare de ja la submit 
 
 
-Daca te ajuta 
+watchAutoSum_CAP7_R8500_C1_FILIAL() - nu mrege, dar acum nu am timp, peurma ne intoarcem si rezolvam, acum 
 
-[CAP5_R8360_C2]+[CAP5_R8350_C2]+[CAP5_R8340_C2]+[CAP5_R8330_C2]+[CAP5_R8320_C2] + [CAP5_R8310_C2]=[CAP5_R8300_C2]msg(Error);
-[CAP5_R8360_C2_FILIAL]+[CAP5_R8350_C2_FILIAL]+[CAP5_R8340_C2_FILIAL]+[CAP5_R8330_C2_FILIAL]+[CAP5_R8320_C2_FILIAL] + [CAP5_R8310_C2_FILIAL]=[CAP5_R8300_C2_FILIAL{N}]msg(Error);
 
-Asa este alt gen de autosuma 
+Creaza validare submit pentru 
+
+[CAP7_R8640_C1] + [CAP7_R8630_C1] + [CAP7_R8620_C1] + [CAP7_R8610_C1]=[CAP7_R8600_C1]msg(Error);
+[CAP7_R8640_C2] + [CAP7_R8630_C2] + [CAP7_R8620_C2] + [CAP7_R8610_C2]=[CAP7_R8600_C2]msg(Error);
+[CAP7_R8640_C3] + [CAP7_R8630_C3] + [CAP7_R8620_C3] + [CAP7_R8610_C3]=[CAP7_R8600_C3]msg(Error);
+[CAP7_R8640_C4] + [CAP7_R8630_C4] + [CAP7_R8620_C4] + [CAP7_R8610_C4]=[CAP7_R8600_C4]msg(Error);
+
+
+Only submit 

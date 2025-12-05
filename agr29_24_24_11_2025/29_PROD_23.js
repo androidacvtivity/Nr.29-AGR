@@ -256,6 +256,104 @@ function validate_CAP7_R8500_C1_F(values) {
         }
     }
 }
+//------------------------------------------------------------------
+
+//----------------------------------------------------------
+// Validare CAP7: 
+//  R8600 C1–C4 = R8610 + R8620 + R8630 + R8640 (pe fiecare coloană)
+function validate_CAP7_R8600(values) {
+    var rows = [8610, 8620, 8630, 8640];
+
+    for (var c = 1; c <= 4; c++) {
+        var col = "C" + c;
+
+        var r8600Key = "CAP7_R8600_" + col;
+        var r8600 = !isNaN(Number(values[r8600Key]))
+            ? Number(values[r8600Key])
+            : 0;
+
+        var sum = 0;
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var key = "CAP7_R" + row + "_" + col;
+            if (!isNaN(Number(values[key]))) {
+                sum += Number(values[key]);
+            }
+        }
+
+        if (r8600 !== sum) {
+            webform.errors.push({
+                fieldName: r8600Key,
+                weight: 10,
+                msg: Drupal.t(
+                    'Cod eroare: CAP7-002. Rând.8600 col.@col trebuie să fie egală cu suma rândurilor 8610, 8620, 8630, 8640 col.@col. Valoarea rândului 8600: @v8600, suma calculată: @sum',
+                    {
+                        '@col': c,
+                        '@v8600': r8600,
+                        '@sum': sum
+                    }
+                )
+            });
+        }
+    }
+}
+
+//----------------------------------------------------------
+// Validare CAP7 FILIAL:
+//  R8600 C1–C4 = R8610 + R8620 + R8630 + R8640 (pe fiecare filială)
+function validate_CAP7_R8600_F(values) {
+    var rows = [8610, 8620, 8630, 8640];
+
+    if (!values.CAP_NUM_FILIAL || !values.CAP_CUATM_FILIAL) {
+        return;
+    }
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j]))
+            ? ""
+            : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var c = 1; c <= 4; c++) {
+            var col = "C" + c;
+
+            // 8600 FILIAL pentru filială j, col Cx
+            var arr8600 = values["CAP7_R8600_" + col + "_FILIAL"];
+            var r8600 = (arr8600 && !isNaN(Number(arr8600[j])))
+                ? Number(arr8600[j])
+                : 0;
+
+            var sum = 0;
+
+            // suma 8610+8620+8630+8640 pentru aceeași filială j, col Cx
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                var arr = values["CAP7_R" + row + "_" + col + "_FILIAL"];
+                if (arr && !isNaN(Number(arr[j]))) {
+                    sum += Number(arr[j]);
+                }
+            }
+
+            if (r8600 !== sum) {
+                webform.errors.push({
+                    fieldName: "CAP7_R8600_" + col + "_FILIAL",
+                    index: j,
+                    weight: 10,
+                    msg: Drupal.t(
+                        'Raion: @CAP_CUATM_FILIAL - Cod eroare: CAP7-002-F. Rând.8600 col.@col (filiale) trebuie să fie egală cu suma rândurilor 8610, 8620, 8630, 8640 col.@col. Valoarea rândului 8600: @v8600, suma calculată: @sum',
+                        {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@col': c,
+                            '@v8600': r8600,
+                            '@sum': sum
+                        }
+                    )
+                });
+            }
+        }
+    }
+}
 
 //------------------------------------------------------------------
 webform.validators.agr29_24 = function (v, allowOverpass) {
@@ -263,6 +361,9 @@ webform.validators.agr29_24 = function (v, allowOverpass) {
    
     //-----------------------------------------------------
  
+
+    validate_CAP7_R8600(values);     // TOTAL
+    validate_CAP7_R8600_F(values);   // FILIALE
 
     validate_CAP7_R8500_C1(values);
     validate_CAP7_R8500_C1_F(values)
