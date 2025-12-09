@@ -1,34 +1,10 @@
-Now - 45-082	Cap.VII Rând.8500...rind.8660 col. col.1 ≥ Rând.8500...rind.8660 col.2
+B120925
 
 
-SELECT 
- 'Rd.'||D.RIND|| ', '||
- 
-  CIS2.NVAL(SUM(CASE WHEN D.RIND IN ('8500','8510','8520','8530','8540','8600','8610','8620','8630','8640','8650','8660') THEN  CIS2.NVAL(D.COL1) END))||'<'||
-  CIS2.NVAL(SUM(CASE WHEN D.RIND IN ('8500','8510','8520','8530','8540','8600','8610','8620','8630','8640','8650','8660') THEN  CIS2.NVAL(D.COL2) END)) 
+Branch-ul pentru 29 Agro Anual este gata  
 
-AS REZULTAT
-FROM
-  CIS2.VW_DATA_ALL_TEMP D
-WHERE
-  (D.PERIOADA IN (:PERIOADA) ) AND
-  (D.CUIIO=:CUIIO            ) AND
-  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
-  (D.FORM = :FORM            ) AND
-  (D.FORM_VERS=:FORM_VERS    ) AND
-  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
-  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
-  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
-  
- 
-  D.FORM IN (45)  AND
-  D.CAPITOL IN (424) AND
-  D.RIND IN ('8500','8510','8520','8530','8540','8600','8610','8620','8630','8640','8650','8660')
+B120925	9f76a263	Commit to B120925 by vitalie.bancu at 2025-12-09 09:23 - B120925 Modificare 29 Agro Anual ID 29_agr24 - 29_PROD_35.js
 
- GROUP BY 
- 
- D.RIND
- 
- HAVING  
-  CIS2.NVAL(SUM(CASE WHEN D.RIND IN ('8500','8510','8520','8530','8540','8600','8610','8620','8630','8640','8650','8660') THEN  CIS2.NVAL(D.COL1) END))<
-  CIS2.NVAL(SUM(CASE WHEN D.RIND IN ('8500','8510','8520','8530','8540','8600','8610','8620','8630','8640','8650','8660') THEN  CIS2.NVAL(D.COL2) END)) 
+
+Mai avem inca cateve rapoarte deja noi. 
+Pana la ce ora trebuie sa prezentam branch-ul 
