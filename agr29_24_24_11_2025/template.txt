@@ -1,10 +1,4 @@
-B120925
 
 
-Branch-ul pentru 29 Agro Anual este gata  
 
-B120925	9f76a263	Commit to B120925 by vitalie.bancu at 2025-12-09 09:23 - B120925 Modificare 29 Agro Anual ID 29_agr24 - 29_PROD_35.js
-
-
-Mai avem inca cateve rapoarte deja noi. 
-Pana la ce ora trebuie sa prezentam branch-ul 
+B121025
