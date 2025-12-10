@@ -2,3 +2,9 @@
 
 
 B121025
+
+
+B121025	3a3e344f	Commit to B121025 by vitalie.bancu at 2025-12-10 14:30 - B121025 - Modificare - ID = agr29_24 - 29_PROD_36.js - Modificare CUATM la 7 Caractere
+
+
+-- Modiciarea tipului de date in Capitolul VIII
