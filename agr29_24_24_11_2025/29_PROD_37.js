@@ -1141,11 +1141,14 @@ function validate_45_080(values) {
 //---------------------------------------------------------------
 
 //----------------------------------------------------------
+// Helper general pentru rotunjire la 1 zecimală
+function round1(num) {
+    return Math.round((Number(num) + Number.EPSILON) * 10) / 10;
+}
+
+//----------------------------------------------------------
 // CAP VIII – Legume de câmp
 // Rând.8700 (col.1–4) = suma rândurilor 8710–8860 (pe fiecare coloană)
-//Modifica validarile existente pentru a rotunji suma la 1 zecimala
-//Rind. 8700.col. 1 - Cod eroare: CAP8-001. Rând.8700 col.1 trebuie să fie egală cu suma rândurilor 8710–8860 col.1. Valoarea rândului 8700: 1797.8, suma calculată: 1797.8000000000006
-//Sunt variabile de tip float. suma trebuie rotunjita la 1 zecimale
 function validate_CAP8_R8700(values) {
     var rows = [
         8710, 8720, 8730, 8740,
@@ -1172,7 +1175,11 @@ function validate_CAP8_R8700(values) {
             }
         }
 
-        if (r8700 !== sum) {
+        // Rotunjim la 1 zecimală înainte de comparație
+        var r8700Rounded = round1(r8700);
+        var sumRounded = round1(sum);
+
+        if (r8700Rounded !== sumRounded) {
             webform.errors.push({
                 fieldName: r8700Key,
                 weight: 10,
@@ -1180,8 +1187,8 @@ function validate_CAP8_R8700(values) {
                     'Cod eroare: CAP8-001. Rând.8700 col.@col trebuie să fie egală cu suma rândurilor 8710–8860 col.@col. Valoarea rândului 8700: @v8700, suma calculată: @sum',
                     {
                         '@col': c,
-                        '@v8700': r8700,
-                        '@sum': sum
+                        '@v8700': r8700Rounded.toFixed(1),
+                        '@sum': sumRounded.toFixed(1)
                     }
                 )
             });
@@ -1232,7 +1239,11 @@ function validate_CAP8_R8700_F(values) {
                 }
             }
 
-            if (r8700 !== sum) {
+            // Rotunjim la 1 zecimală înainte de comparație
+            var r8700Rounded = round1(r8700);
+            var sumRounded = round1(sum);
+
+            if (r8700Rounded !== sumRounded) {
                 webform.errors.push({
                     fieldName: "CAP8_R8700_" + col + "_FILIAL",
                     index: j,
@@ -1242,8 +1253,8 @@ function validate_CAP8_R8700_F(values) {
                         {
                             '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
                             '@col': c,
-                            '@v8700': r8700,
-                            '@sum': sum
+                            '@v8700': r8700Rounded.toFixed(1),
+                            '@sum': sumRounded.toFixed(1)
                         }
                     )
                 });
@@ -1251,6 +1262,7 @@ function validate_CAP8_R8700_F(values) {
         }
     }
 }
+
 
 //-------------------------------------------------------------------------------
 
