@@ -850,6 +850,18 @@ function validate_45_082(values) {
 
 
 //----------------------------------------------------------
+
+
+// Helper general pentru rotunjire la 1 zecimală
+function round1(value) {
+    var n = Number(value);
+    if (isNaN(n)) {
+        return 0;
+    }
+    return Math.round((n + Number.EPSILON) * 10) / 10;
+}
+
+//----------------------------------------------------------
 // 45-081-F  (FILIALE)
 // Pentru fiecare filială N:
 // Cap.I col.1 rând.1620, 1621-1636 ≥
@@ -898,16 +910,20 @@ function validate_45_081_F(values) {
 
             // stânga: CAP I, rând r1, col.1, pentru filială j
             var arrLeft = values["CAP1_R" + pair.r1 + "_C1_FILIAL"];
-            var left = (arrLeft && !isNaN(Number(arrLeft[j])))
+            var leftRaw = (arrLeft && !isNaN(Number(arrLeft[j])))
                 ? Number(arrLeft[j])
                 : 0;
 
             // dreapta: CAP VIII, rând r8, suma C1+C2+C3+C4 pentru filială j
-            var right =
+            var rightRaw =
                 NVAL(values["CAP8_R" + pair.r8 + "_C1_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C1_FILIAL"][j] : 0) +
                 NVAL(values["CAP8_R" + pair.r8 + "_C2_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C2_FILIAL"][j] : 0) +
                 NVAL(values["CAP8_R" + pair.r8 + "_C3_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C3_FILIAL"][j] : 0) +
                 NVAL(values["CAP8_R" + pair.r8 + "_C4_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C4_FILIAL"][j] : 0);
+
+            // rotunjim la 1 zecimală
+            var left = round1(leftRaw);
+            var right = round1(rightRaw);
 
             if (left < right) {
                 webform.errors.push({
@@ -920,8 +936,8 @@ function validate_45_081_F(values) {
                             '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
                             '@r1': pair.r1,
                             '@r8': pair.r8,
-                            '@left': left,
-                            '@right': right
+                            '@left': left.toFixed(1),
+                            '@right': right.toFixed(1)
                         }
                     )
                 });
@@ -931,10 +947,104 @@ function validate_45_081_F(values) {
 }
 
 //----------------------------------------------------------
-//Modifica validarea dupa tipul de date - sunt float si cu o zecimala dupa virgula - sa fie facut calculul corect
+// Helper general pentru rotunjire la 1 zecimală
+function round1(value) {
+    var n = Number(value);
+    if (isNaN(n)) {
+        return 0;
+    }
+    return Math.round((n + Number.EPSILON) * 10) / 10;
+}
+
+//----------------------------------------------------------
+// 45-081-F  (FILIALE)
+// Pentru fiecare filială N:
+// Cap.I col.1 rând.1620, 1621-1636 ≥
+//   Cap.VIII rând.8700, 8710-8860 (suma col.1+2+3+4)
+function validate_45_081_F(values) {
+
+    function NVAL(value) {
+        var n = Number(value);
+        return isNaN(n) ? 0 : n;
+    }
+
+    if (!values.CAP_NUM_FILIAL || !values.CAP_CUATM_FILIAL) {
+        return;
+    }
+
+    var checks = [
+        { r1: '1621', r8: '8710' },
+        { r1: '1622', r8: '8720' },
+        { r1: '1623', r8: '8730' },
+        { r1: '1624', r8: '8740' },
+        { r1: '1625', r8: '8750' },
+        { r1: '1626', r8: '8760' },
+        { r1: '1627', r8: '8770' },
+        { r1: '1628', r8: '8780' },
+        { r1: '1629', r8: '8790' },
+        { r1: '1630', r8: '8800' },
+        { r1: '1631', r8: '8810' },
+        { r1: '1632', r8: '8820' },
+        { r1: '1633', r8: '8830' },
+        { r1: '1634', r8: '8840' },
+        { r1: '1635', r8: '8850' },
+        { r1: '1636', r8: '8860' },
+
+        // totaluri
+        { r1: '1620', r8: '8700' }
+    ];
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j]))
+            ? ""
+            : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var i = 0; i < checks.length; i++) {
+            var pair = checks[i];
+
+            // stânga: CAP I, rând r1, col.1, pentru filială j
+            var arrLeft = values["CAP1_R" + pair.r1 + "_C1_FILIAL"];
+            var leftRaw = (arrLeft && !isNaN(Number(arrLeft[j])))
+                ? Number(arrLeft[j])
+                : 0;
+
+            // dreapta: CAP VIII, rând r8, suma C1+C2+C3+C4 pentru filială j
+            var rightRaw =
+                NVAL(values["CAP8_R" + pair.r8 + "_C1_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C1_FILIAL"][j] : 0) +
+                NVAL(values["CAP8_R" + pair.r8 + "_C2_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C2_FILIAL"][j] : 0) +
+                NVAL(values["CAP8_R" + pair.r8 + "_C3_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C3_FILIAL"][j] : 0) +
+                NVAL(values["CAP8_R" + pair.r8 + "_C4_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C4_FILIAL"][j] : 0);
+
+            // rotunjim la 1 zecimală
+            var left = round1(leftRaw);
+            var right = round1(rightRaw);
+
+            if (left < right) {
+                webform.errors.push({
+                    fieldName: "CAP1_R" + pair.r1 + "_C1_FILIAL",
+                    index: j,
+                    weight: 81,
+                    msg: Drupal.t(
+                        'Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-081-F. Cap.I, rând.@r1, col.1 (@left) trebuie să fie ≥ suma Cap.VIII, rând.@r8, col.1+2+3+4 (@right).',
+                        {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@r1': pair.r1,
+                            '@r8': pair.r8,
+                            '@left': left.toFixed(1),
+                            '@right': right.toFixed(1)
+                        }
+                    )
+                });
+            }
+        }
+    }
+}
+
+//----------------------------------------------------------
 // 45-081
 // Cap.I col.1 rând.1620, 1621-1636 ≥ 
-//  cap.VIII rând.8700, 8710-8860 (suma col.1+2+3+4)
+// cap.VIII rând.8700, 8710-8860 (suma col.1+2+3+4)
 function validate_45_081(values) {
 
     function NVAL(value) {
@@ -970,15 +1080,19 @@ function validate_45_081(values) {
 
         // stânga: CAP I, rând r1, col.1
         var leftKey = "CAP1_R" + pair.r1 + "_C1";
-        var left = NVAL(values[leftKey]);
+        var leftRaw = NVAL(values[leftKey]);
 
         // dreapta: CAP VIII, rând r8, suma C1+C2+C3+C4
         var base = "CAP8_R" + pair.r8 + "_";
-        var right =
+        var rightRaw =
             NVAL(values[base + "C1"]) +
             NVAL(values[base + "C2"]) +
             NVAL(values[base + "C3"]) +
             NVAL(values[base + "C4"]);
+
+        // rotunjim la 1 zecimală
+        var left = round1(leftRaw);
+        var right = round1(rightRaw);
 
         if (left < right) {
             webform.errors.push({
@@ -989,8 +1103,8 @@ function validate_45_081(values) {
                     {
                         '@r1': pair.r1,
                         '@r8': pair.r8,
-                        '@left': left,
-                        '@right': right
+                        '@left': left.toFixed(1),
+                        '@right': right.toFixed(1)
                     }
                 )
             });
@@ -998,7 +1112,7 @@ function validate_45_081(values) {
     }
 }
 
-//------------------------------------------------------------------
+
 //----------------------------------------------------------
 // 45-080-F  (FILIALE)
 // Pentru fiecare filială N:
