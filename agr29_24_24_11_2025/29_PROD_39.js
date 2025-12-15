@@ -850,6 +850,18 @@ function validate_45_082(values) {
 
 
 //----------------------------------------------------------
+
+
+// Helper general pentru rotunjire la 1 zecimală
+function round1(value) {
+    var n = Number(value);
+    if (isNaN(n)) {
+        return 0;
+    }
+    return Math.round((n + Number.EPSILON) * 10) / 10;
+}
+
+//----------------------------------------------------------
 // 45-081-F  (FILIALE)
 // Pentru fiecare filială N:
 // Cap.I col.1 rând.1620, 1621-1636 ≥
@@ -898,16 +910,20 @@ function validate_45_081_F(values) {
 
             // stânga: CAP I, rând r1, col.1, pentru filială j
             var arrLeft = values["CAP1_R" + pair.r1 + "_C1_FILIAL"];
-            var left = (arrLeft && !isNaN(Number(arrLeft[j])))
+            var leftRaw = (arrLeft && !isNaN(Number(arrLeft[j])))
                 ? Number(arrLeft[j])
                 : 0;
 
             // dreapta: CAP VIII, rând r8, suma C1+C2+C3+C4 pentru filială j
-            var right =
+            var rightRaw =
                 NVAL(values["CAP8_R" + pair.r8 + "_C1_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C1_FILIAL"][j] : 0) +
                 NVAL(values["CAP8_R" + pair.r8 + "_C2_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C2_FILIAL"][j] : 0) +
                 NVAL(values["CAP8_R" + pair.r8 + "_C3_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C3_FILIAL"][j] : 0) +
                 NVAL(values["CAP8_R" + pair.r8 + "_C4_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C4_FILIAL"][j] : 0);
+
+            // rotunjim la 1 zecimală
+            var left = round1(leftRaw);
+            var right = round1(rightRaw);
 
             if (left < right) {
                 webform.errors.push({
@@ -920,8 +936,103 @@ function validate_45_081_F(values) {
                             '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
                             '@r1': pair.r1,
                             '@r8': pair.r8,
-                            '@left': left,
-                            '@right': right
+                            '@left': left.toFixed(1),
+                            '@right': right.toFixed(1)
+                        }
+                    )
+                });
+            }
+        }
+    }
+}
+
+//----------------------------------------------------------
+// Helper general pentru rotunjire la 1 zecimală
+function round1(value) {
+    var n = Number(value);
+    if (isNaN(n)) {
+        return 0;
+    }
+    return Math.round((n + Number.EPSILON) * 10) / 10;
+}
+
+//----------------------------------------------------------
+// 45-081-F  (FILIALE)
+// Pentru fiecare filială N:
+// Cap.I col.1 rând.1620, 1621-1636 ≥
+//   Cap.VIII rând.8700, 8710-8860 (suma col.1+2+3+4)
+function validate_45_081_F(values) {
+
+    function NVAL(value) {
+        var n = Number(value);
+        return isNaN(n) ? 0 : n;
+    }
+
+    if (!values.CAP_NUM_FILIAL || !values.CAP_CUATM_FILIAL) {
+        return;
+    }
+
+    var checks = [
+        { r1: '1621', r8: '8710' },
+        { r1: '1622', r8: '8720' },
+        { r1: '1623', r8: '8730' },
+        { r1: '1624', r8: '8740' },
+        { r1: '1625', r8: '8750' },
+        { r1: '1626', r8: '8760' },
+        { r1: '1627', r8: '8770' },
+        { r1: '1628', r8: '8780' },
+        { r1: '1629', r8: '8790' },
+        { r1: '1630', r8: '8800' },
+        { r1: '1631', r8: '8810' },
+        { r1: '1632', r8: '8820' },
+        { r1: '1633', r8: '8830' },
+        { r1: '1634', r8: '8840' },
+        { r1: '1635', r8: '8850' },
+        { r1: '1636', r8: '8860' },
+
+        // totaluri
+        { r1: '1620', r8: '8700' }
+    ];
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j]))
+            ? ""
+            : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var i = 0; i < checks.length; i++) {
+            var pair = checks[i];
+
+            // stânga: CAP I, rând r1, col.1, pentru filială j
+            var arrLeft = values["CAP1_R" + pair.r1 + "_C1_FILIAL"];
+            var leftRaw = (arrLeft && !isNaN(Number(arrLeft[j])))
+                ? Number(arrLeft[j])
+                : 0;
+
+            // dreapta: CAP VIII, rând r8, suma C1+C2+C3+C4 pentru filială j
+            var rightRaw =
+                NVAL(values["CAP8_R" + pair.r8 + "_C1_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C1_FILIAL"][j] : 0) +
+                NVAL(values["CAP8_R" + pair.r8 + "_C2_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C2_FILIAL"][j] : 0) +
+                NVAL(values["CAP8_R" + pair.r8 + "_C3_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C3_FILIAL"][j] : 0) +
+                NVAL(values["CAP8_R" + pair.r8 + "_C4_FILIAL"] ? values["CAP8_R" + pair.r8 + "_C4_FILIAL"][j] : 0);
+
+            // rotunjim la 1 zecimală
+            var left = round1(leftRaw);
+            var right = round1(rightRaw);
+
+            if (left < right) {
+                webform.errors.push({
+                    fieldName: "CAP1_R" + pair.r1 + "_C1_FILIAL",
+                    index: j,
+                    weight: 81,
+                    msg: Drupal.t(
+                        'Raion: @CAP_CUATM_FILIAL - Cod eroare: 45-081-F. Cap.I, rând.@r1, col.1 (@left) trebuie să fie ≥ suma Cap.VIII, rând.@r8, col.1+2+3+4 (@right).',
+                        {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@r1': pair.r1,
+                            '@r8': pair.r8,
+                            '@left': left.toFixed(1),
+                            '@right': right.toFixed(1)
                         }
                     )
                 });
@@ -933,7 +1044,7 @@ function validate_45_081_F(values) {
 //----------------------------------------------------------
 // 45-081
 // Cap.I col.1 rând.1620, 1621-1636 ≥ 
-//   cap.VIII rând.8700, 8710-8860 (suma col.1+2+3+4)
+// cap.VIII rând.8700, 8710-8860 (suma col.1+2+3+4)
 function validate_45_081(values) {
 
     function NVAL(value) {
@@ -969,15 +1080,19 @@ function validate_45_081(values) {
 
         // stânga: CAP I, rând r1, col.1
         var leftKey = "CAP1_R" + pair.r1 + "_C1";
-        var left = NVAL(values[leftKey]);
+        var leftRaw = NVAL(values[leftKey]);
 
         // dreapta: CAP VIII, rând r8, suma C1+C2+C3+C4
         var base = "CAP8_R" + pair.r8 + "_";
-        var right =
+        var rightRaw =
             NVAL(values[base + "C1"]) +
             NVAL(values[base + "C2"]) +
             NVAL(values[base + "C3"]) +
             NVAL(values[base + "C4"]);
+
+        // rotunjim la 1 zecimală
+        var left = round1(leftRaw);
+        var right = round1(rightRaw);
 
         if (left < right) {
             webform.errors.push({
@@ -988,8 +1103,8 @@ function validate_45_081(values) {
                     {
                         '@r1': pair.r1,
                         '@r8': pair.r8,
-                        '@left': left,
-                        '@right': right
+                        '@left': left.toFixed(1),
+                        '@right': right.toFixed(1)
                     }
                 )
             });
@@ -997,7 +1112,7 @@ function validate_45_081(values) {
     }
 }
 
-//------------------------------------------------------------------
+
 //----------------------------------------------------------
 // 45-080-F  (FILIALE)
 // Pentru fiecare filială N:
@@ -1141,11 +1256,14 @@ function validate_45_080(values) {
 //---------------------------------------------------------------
 
 //----------------------------------------------------------
+// Helper general pentru rotunjire la 1 zecimală
+function round1(num) {
+    return Math.round((Number(num) + Number.EPSILON) * 10) / 10;
+}
+
+//----------------------------------------------------------
 // CAP VIII – Legume de câmp
 // Rând.8700 (col.1–4) = suma rândurilor 8710–8860 (pe fiecare coloană)
-//Modifica validarile existente pentru a rotunji suma la 1 zecimala
-//Rind. 8700.col. 1 - Cod eroare: CAP8-001. Rând.8700 col.1 trebuie să fie egală cu suma rândurilor 8710–8860 col.1. Valoarea rândului 8700: 1797.8, suma calculată: 1797.8000000000006
-//Sunt variabile de tip float. suma trebuie rotunjita la 1 zecimale
 function validate_CAP8_R8700(values) {
     var rows = [
         8710, 8720, 8730, 8740,
@@ -1172,7 +1290,11 @@ function validate_CAP8_R8700(values) {
             }
         }
 
-        if (r8700 !== sum) {
+        // Rotunjim la 1 zecimală înainte de comparație
+        var r8700Rounded = round1(r8700);
+        var sumRounded = round1(sum);
+
+        if (r8700Rounded !== sumRounded) {
             webform.errors.push({
                 fieldName: r8700Key,
                 weight: 10,
@@ -1180,8 +1302,8 @@ function validate_CAP8_R8700(values) {
                     'Cod eroare: CAP8-001. Rând.8700 col.@col trebuie să fie egală cu suma rândurilor 8710–8860 col.@col. Valoarea rândului 8700: @v8700, suma calculată: @sum',
                     {
                         '@col': c,
-                        '@v8700': r8700,
-                        '@sum': sum
+                        '@v8700': r8700Rounded.toFixed(1),
+                        '@sum': sumRounded.toFixed(1)
                     }
                 )
             });
@@ -1232,7 +1354,11 @@ function validate_CAP8_R8700_F(values) {
                 }
             }
 
-            if (r8700 !== sum) {
+            // Rotunjim la 1 zecimală înainte de comparație
+            var r8700Rounded = round1(r8700);
+            var sumRounded = round1(sum);
+
+            if (r8700Rounded !== sumRounded) {
                 webform.errors.push({
                     fieldName: "CAP8_R8700_" + col + "_FILIAL",
                     index: j,
@@ -1242,8 +1368,8 @@ function validate_CAP8_R8700_F(values) {
                         {
                             '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
                             '@col': c,
-                            '@v8700': r8700,
-                            '@sum': sum
+                            '@v8700': r8700Rounded.toFixed(1),
+                            '@sum': sumRounded.toFixed(1)
                         }
                     )
                 });
@@ -1251,6 +1377,7 @@ function validate_CAP8_R8700_F(values) {
         }
     }
 }
+
 
 //-------------------------------------------------------------------------------
 
@@ -1326,11 +1453,11 @@ function validate_CAP1_R5000_C1(values) {
 
     var calculatedSum = CAP1_R5100 + CAP2_R7100 + CAP2_R7200 + CAP2_R7300 + CAP2_R7400 + CAP2_R7500;
 
-    if (CAP1_R5000 !== calculatedSum) {
+    if (CAP1_R5000 <  calculatedSum) {
         webform.errors.push({
             'fieldName': 'CAP1_R5000_' + col1,
             'weight': 19,
-            'msg': Drupal.t('Cod eroare: 45-014. Valoarea CAP.1 Rând.5000 col.1 trebuie să fie egală cu suma valorilor: CAP1 Rând.5100 col.1, CAP2 Rând.7100 col.1, CAP2 Rând.7200 col.1, CAP2 Rând.7300 col.1, CAP2 Rând.7400 col.1 și CAP2 Rând.7500 col.1. Valoarea găsită: ' + CAP1_R5000 + ', suma calculată: ' + calculatedSum)
+            'msg': Drupal.t('Cod eroare: 45-014. Valoarea CAP.1 Rând.5000 col.1 trebuie să fie mai mică  cu suma valorilor: CAP1 Rând.5100 col.1, CAP2 Rând.7100 col.1, CAP2 Rând.7200 col.1, CAP2 Rând.7300 col.1, CAP2 Rând.7400 col.1 și CAP2 Rând.7500 col.1. Valoarea găsită: ' + CAP1_R5000 + ', suma calculată: ' + calculatedSum)
         });
     }
 }

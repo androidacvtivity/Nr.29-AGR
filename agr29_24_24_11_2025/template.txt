@@ -8,3 +8,17 @@ B121025	3a3e344f	Commit to B121025 by vitalie.bancu at 2025-12-10 14:30 - B12102
 
 
 -- Modiciarea tipului de date in Capitolul VIII
+
+
+B121025
+
+B121125
+
+
+B121125	448f85c1	Commit to B121125 by vitalie.bancu at 2025-12-11 13:42 - B121125 - Modificare 29 Agro Anual -- ID = agr29_24 - 29_PROD_36.js
+
+
+
+
+B121525 -- 29_agr24 29_PROD_40.js 
+
