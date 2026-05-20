@@ -27,3 +27,141 @@ Buna. Iti prezint catalogul actual din 4 Agro.
 nu va ajunge.
 Pentru toate filialele trebuie de adaugat in catalog cuiio mama. 
  
+
+
+
+ CREATE TABLE USER_BANCU.KATALOG_45_1063
+(
+  CUIIO       NUMBER,
+  CUIIO_VERS  NUMBER,
+  DENUMIRE    VARCHAR2(1024 BYTE),
+  CUATM       VARCHAR2(1024 BYTE),
+  CFP         VARCHAR2(1024 BYTE),
+  CFOJ        VARCHAR2(1024 BYTE),
+  COCM        VARCHAR2(1024 BYTE),
+  CAEM2       VARCHAR2(1024 BYTE),
+  CAEM        VARCHAR2(1024 BYTE),
+  IDNO        VARCHAR2(1024 BYTE)
+)
+TABLESPACE TBS_DTI_USERS
+PCTUSED    0
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+MONITORING;
+
+
+Trebuie sa execut asa interogarea 
+ce sa creiezi pentru coloane 
+SELECT *
+FROM (
+    -- Partea 1: Rândurile care satisfac relatia substring-string
+    SELECT 
+        A.*, 
+        1 AS SORT_ORDER
+    FROM USER_BANCU.KATALOG_45_1063 A
+    WHERE CUIIO IN (
+        SELECT DISTINCT A.CUIIO
+        FROM USER_BANCU.KATALOG_45_1063 A
+        JOIN USER_BANCU.KATALOG_45_1063 B
+        ON A.CUIIO <> B.CUIIO
+        AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+        UNION
+        SELECT DISTINCT B.CUIIO
+        FROM USER_BANCU.KATALOG_45_1063 A
+        JOIN USER_BANCU.KATALOG_45_1063 B
+        ON A.CUIIO <> B.CUIIO
+        AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+    )
+    
+    UNION ALL
+    
+    -- Rând gol pentru separare între Partea 1 si Partea 2
+    SELECT 
+        NULL AS CUIIO, NULL AS CUIIO_VERS, NULL AS DENUMIRE, NULL AS CUATM,
+        NULL AS CFP, NULL AS CFOJ, NULL AS COCM, NULL AS CAEM2, NULL AS CAEM, 
+        NULL AS IDNO, 2 AS SORT_ORDER
+    FROM DUAL
+    
+    UNION ALL
+    
+    -- Partea 2.1: Rândurile din Partea 2 cu lungimea CUIIO egala cu 9 sau 10
+    SELECT 
+        A.*, 
+        3 AS SORT_ORDER
+    FROM USER_BANCU.KATALOG_45_1063 A
+    WHERE LENGTH(TO_CHAR(A.CUIIO)) IN (9, 10)
+      AND CUIIO NOT IN (
+          SELECT DISTINCT A.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+          UNION
+          SELECT DISTINCT B.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+      )
+      
+    UNION ALL
+    
+    -- Rând gol pentru separare între Partea 2.1 si Partea 2.2
+    SELECT 
+        NULL AS CUIIO, 
+        NULL AS CUIIO_VERS, 
+        NULL AS DENUMIRE, 
+        NULL AS CUATM,
+        NULL AS CFP, 
+        NULL AS CFOJ, 
+        NULL AS COCM, 
+        NULL AS CAEM2, 
+        NULL AS CAEM, 
+        NULL AS IDNO, 
+        4 AS SORT_ORDER
+        
+        
+        
+    FROM DUAL
+    
+    UNION ALL
+    
+    -- Partea 2.2: Celelalte rânduri din Partea 2 (restul, sortate descrescator)
+    SELECT 
+        A.*, 
+        5 AS SORT_ORDER
+    FROM USER_BANCU.KATALOG_45_1063 A
+    WHERE LENGTH(TO_CHAR(A.CUIIO)) NOT IN (9, 10)
+      AND CUIIO NOT IN (
+          SELECT DISTINCT A.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+          UNION
+          SELECT DISTINCT B.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+      )
+)
+ORDER BY SORT_ORDER, 
+         CASE WHEN SORT_ORDER = 1 THEN SUBSTR(CUIIO, 1, 10) END,
+         CASE WHEN SORT_ORDER = 1 THEN LENGTH(CUIIO) END,
+         CASE WHEN SORT_ORDER IN (3, 5) THEN CUIIO END DESC;
+
+
+sunt 7500 de randuri 

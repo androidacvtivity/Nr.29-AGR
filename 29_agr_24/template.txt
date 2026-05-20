@@ -1,1 +1,208 @@
-NR. 29-agr (anual) - PRODUCȚIA VEGETALĂ
+Am un table in oracle 
+
+CREATE TABLE USER_BANCU.KATALOG_45_1063
+(
+  CUIIO       NUMBER,
+  CUIIO_VERS  NUMBER,
+  DENUMIRE    VARCHAR2(1024 BYTE),
+  CUATM       VARCHAR2(1024 BYTE),
+  CFP         VARCHAR2(1024 BYTE),
+  CFOJ        VARCHAR2(1024 BYTE),
+  COCM        VARCHAR2(1024 BYTE),
+  CAEM2       VARCHAR2(1024 BYTE),
+  CAEM        VARCHAR2(1024 BYTE),
+  IDNO        VARCHAR2(1024 BYTE)
+)
+TABLESPACE TBS_DTI_USERS
+PCTUSED    0
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+MONITORING;
+
+
+CREATE INDEX USER_BANCU.IDX_KATALOG_45_1063_CUIIO ON USER_BANCU.KATALOG_45_1063
+(CUIIO)
+LOGGING
+TABLESPACE TBS_DTI_USERS
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
+
+CREATE INDEX USER_BANCU.IDX_KATALOG_45_1063_CUIIO_CHAR ON USER_BANCU.KATALOG_45_1063
+(TO_CHAR("CUIIO"))
+LOGGING
+TABLESPACE TBS_DTI_USERS
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
+
+CREATE INDEX USER_BANCU.IDX_KATALOG_45_1063_CUIIO_LEN ON USER_BANCU.KATALOG_45_1063
+(LENGTH(TO_CHAR("CUIIO")))
+LOGGING
+TABLESPACE TBS_DTI_USERS
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
+
+           Cu asa date 
+41752203	1067	SRL MP FRUIT PARTNER	0131000	16	530		A0111		1024600033043
+4133755614	1067	SRL FAM NICULICA	1434000	16	530		A0124		1019604001082
+41724425	1067	GOSPODARIA TARANEASCA "CEBOTARI VINOLIN FILARET" DIN S.COLICAUTI, RAIONUL BRICENI	1417000	15	685		A0124		1024604003107
+4141729014	1067	GT Russu Lilia Victor	1423000	15	685		A0124		1024604003554
+1025604001580	1067	GT Gojan Iulia Victor 	1423000	15	685				
+41171854	1067	GT Rusnac Viorel Anatol	1423000	15	685		A0111		1024604000748
+
+
+Sunt mai multe randuri - dar datele sunt de genul acesta 
+
+Am asa o in terogare 
+
+SELECT *
+FROM (
+    -- Partea 1: Rândurile care satisfac relatia substring-string
+    SELECT 
+        A.*, 
+        1 AS SORT_ORDER
+    FROM USER_BANCU.KATALOG_45_1063 A
+    WHERE CUIIO IN (
+        SELECT DISTINCT A.CUIIO
+        FROM USER_BANCU.KATALOG_45_1063 A
+        JOIN USER_BANCU.KATALOG_45_1063 B
+        ON A.CUIIO <> B.CUIIO
+        AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+        UNION
+        SELECT DISTINCT B.CUIIO
+        FROM USER_BANCU.KATALOG_45_1063 A
+        JOIN USER_BANCU.KATALOG_45_1063 B
+        ON A.CUIIO <> B.CUIIO
+        AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+    )
+    
+    UNION ALL
+    
+    -- Rând gol pentru separare între Partea 1 si Partea 2
+    SELECT 
+        NULL AS CUIIO, NULL AS CUIIO_VERS, NULL AS DENUMIRE, NULL AS CUATM,
+        NULL AS CFP, NULL AS CFOJ, NULL AS COCM, NULL AS CAEM2, NULL AS CAEM, 
+        NULL AS IDNO, 2 AS SORT_ORDER
+    FROM DUAL
+    
+    UNION ALL
+    
+    -- Partea 2.1: Rândurile din Partea 2 cu lungimea CUIIO egala cu 9 sau 10
+    SELECT 
+        A.*, 
+        3 AS SORT_ORDER
+    FROM USER_BANCU.KATALOG_45_1063 A
+    WHERE LENGTH(TO_CHAR(A.CUIIO)) IN (9, 10)
+      AND CUIIO NOT IN (
+          SELECT DISTINCT A.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+          UNION
+          SELECT DISTINCT B.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+      )
+      
+    UNION ALL
+    
+    -- Rând gol pentru separare între Partea 2.1 si Partea 2.2
+    SELECT 
+        NULL AS CUIIO, 
+        NULL AS CUIIO_VERS, 
+        NULL AS DENUMIRE, 
+        NULL AS CUATM,
+        NULL AS CFP, 
+        NULL AS CFOJ, 
+        NULL AS COCM, 
+        NULL AS CAEM2, 
+        NULL AS CAEM, 
+        NULL AS IDNO, 
+        4 AS SORT_ORDER
+        
+        
+        
+    FROM DUAL
+    
+    UNION ALL
+    
+    -- Partea 2.2: Celelalte rânduri din Partea 2 (restul, sortate descrescator)
+    SELECT 
+        A.*, 
+        5 AS SORT_ORDER
+    FROM USER_BANCU.KATALOG_45_1063 A
+    WHERE LENGTH(TO_CHAR(A.CUIIO)) NOT IN (9, 10)
+      AND CUIIO NOT IN (
+          SELECT DISTINCT A.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+          UNION
+          SELECT DISTINCT B.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+      )
+)
+ORDER BY SORT_ORDER, 
+         CASE WHEN SORT_ORDER = 1 THEN SUBSTR(CUIIO, 1, 10) END,
+         CASE WHEN SORT_ORDER = 1 THEN LENGTH(CUIIO) END,
+         CASE WHEN SORT_ORDER IN (3, 5) THEN CUIIO END DESC;
+
+
+In partea Partea 1 se cauta relatia substring-string 
+dar mai vreau sa adaug o conditie sa fie mai precis este o conditie 
+daca un CUIIO este ub string la substring 
+atunci ultimile 2 caractere la string trebuie sa fie egale cu primele 2 caractere la campul CUATM 
+
+exemplu 
+
+41752203	1067	SRL MP FRUIT PARTNER	0131000	16	530		A0111		1024600033043
+4133755614	1067	SRL FAM NICULICA	1434000	16	530		A0124		1019604001082
+
+daca 41752203 este substring la 4133755614 atunci ultimile doua caractere al 
+4133755614 - adica 14 este egla cu primele 2 caractere al coloanei cuatm 1434000
+este clar - deci crde ca trebuie de modificat partea 1 

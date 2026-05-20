@@ -1,37 +1,33 @@
+Buna ziua colegi. 
+Penultimul deploy la raportul 29 Agro anual 
 
-//Modifica aces SQL sa afiseza pana la 7 caractere nu pana la 4 
-SELECT LEFT(CASE WHEN TRIM(c.code) REGEXP '^[135]' AND CHAR_LENGTH(TRIM(c.code)) = 6 THEN CONCAT('0', TRIM(c.code)) ELSE TRIM(c.code) END , 4) AS code, CONCAT(LEFT(CASE WHEN TRIM(c.code) REGEXP '^[135]' AND CHAR_LENGTH(TRIM(c.code)) = 6 THEN CONCAT('0', TRIM(c.code)) ELSE TRIM(c.code) END, 4), ' - ',  t.name) FROM taxonomy_term_data t JOIN classifier_cuatm_full c ON c.tid = t.tid  WHERE c.prgs in ('5','3','4','6','8','9') AND c.code not in ('101000');
-
-
-
-SELECT 
-    LEFT(
-        CASE 
-            WHEN TRIM(c.code) REGEXP '^[135]' 
-                 AND CHAR_LENGTH(TRIM(c.code)) = 6 
-            THEN CONCAT('0', TRIM(c.code)) 
-            ELSE TRIM(c.code) 
-        END, 
-        7
-    ) AS code,
-    CONCAT(
-        LEFT(
-            CASE 
-                WHEN TRIM(c.code) REGEXP '^[135]' 
-                     AND CHAR_LENGTH(TRIM(c.code)) = 6 
-                THEN CONCAT('0', TRIM(c.code)) 
-                ELSE TRIM(c.code) 
-            END, 
-            7
-        ), 
-        ' - ', 
-        t.name
-    )
-FROM taxonomy_term_data t 
-JOIN classifier_cuatm_full c ON c.tid = t.tid
-WHERE c.prgs IN ('5','3','4','6','8','9')
-  AND c.code NOT IN ('101000');
+pentru filiale in excel 
+CAP_NUM_FILIAL	Numărul de formular	dec/DataSet/Data/CAP/CAP_R[line]/CAP_NUM_FILIAL
 
 
+in xpath
+  sa inserat 
+  /dec/DataSet/Data/CAP/CAP_R[line]/CAP_NUM_FILIAL in loc de 
+  
+  
+  dec/DataSet/Data/CAP/CAP_R[line]/CAP_NUM_FILIAL
 
-SELECT LEFT(CASE WHEN TRIM(c.code) REGEXP '^[135]' AND CHAR_LENGTH(TRIM(c.code)) = 6 THEN CONCAT('0', TRIM(c.code)) ELSE TRIM(c.code) END, 7) AS code, CONCAT(LEFT(CASE WHEN TRIM(c.code) REGEXP '^[135]' AND CHAR_LENGTH(TRIM(c.code)) = 6 THEN CONCAT('0', TRIM(c.code)) ELSE TRIM(c.code) END, 7), ' - ', t.name) FROM taxonomy_term_data t JOIN classifier_cuatm_full c ON c.tid = t.tid WHERE c.prgs IN ('5','3','4','6','8','9') AND c.code NOT IN ('101000');
+  Si in asa mod pentru toate randurile - pentru filiale 
+
+  si dupa nu se salvvau filialele in raport - 
+  raportul sa inchis pentru  colectare conform termenului de prezentare 
+  la urmatorul deploy am atasat execlul  cu coloana corecta pentru filiale
+  dar  rapoartele salvate anterior pana pe 30.12.2026 - care au fost trimiss cu filiale 
+  cand raportul se dschide nu se vuzualizeaza filialele 
+
+-- eu am descris situatia - noi pe partea noastra nu ptem face nimic
+
+Acum  la completarea raportului  asa eroare nu este - 
+
+26748381
+
+1006601000200
+
+26748595
+
+	26748595 (vitalie.bancu

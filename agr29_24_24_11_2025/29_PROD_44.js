@@ -640,7 +640,8 @@ function validate_45_085(values) {
         var v7 = NVAL(values[keyC7]);
         var v8 = NVAL(values[keyC8]);
 
-        if (v7 < v8) {
+        if (v7 < v8) // cum aici de verifica ca ambele variabile sunt number - sa nu fie una cgar si alta number  
+        {
             webform.errors.push({
                 fieldName: keyC7,
                 weight: 85,
